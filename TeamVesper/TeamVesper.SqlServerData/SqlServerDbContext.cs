@@ -1,15 +1,16 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 
 using TeamVesper.Models;
+using TeamVesper.SqlServerData.Contracts;
 
 namespace TeamVesper.SqlServerData
 {
-    public class SqlServerDbContext : DbContext
+    public class SqlServerDbContext : DbContext, ISqlServerDbContext
     {
         public SqlServerDbContext()
             : base("TeamVesperSqlServer")
         {
-
         }
 
         public virtual IDbSet<Developer> Developers { get; set; }
@@ -19,5 +20,11 @@ namespace TeamVesper.SqlServerData
         public virtual IDbSet<Team> Teams { get; set; }
 
         public virtual IDbSet<SqlInitializer> Initializer { get; set; }
+
+        public new IDbSet<TEntity> Set<TEntity>()
+            where TEntity : class
+        {
+            return base.Set<TEntity>();
+        }
     }
 }
