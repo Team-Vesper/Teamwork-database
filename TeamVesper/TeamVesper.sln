@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.SqlServerData", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.DbCreate", "TeamVesper.DbCreate\TeamVesper.DbCreate.csproj", "{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.MongoDB.Models", "TeamVesper.MongoDB.Models\TeamVesper.MongoDB.Models.csproj", "{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

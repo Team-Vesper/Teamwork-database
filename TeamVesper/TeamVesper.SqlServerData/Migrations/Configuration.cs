@@ -1,4 +1,5 @@
 using System.Data.Entity.Migrations;
+using TeamVesper.Models;
 
 namespace TeamVesper.SqlServerData.Migrations
 {

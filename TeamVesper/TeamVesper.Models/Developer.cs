@@ -36,7 +36,7 @@ namespace TeamVesper.Models
         [Range(0, int.MaxValue)]
         public int Salary { get; set; }
 
-        public bool TeamLeader { get; set; }
+        public bool isTeamLeader { get; set; }
 
         public virtual int TeamId { get; set; }
 
