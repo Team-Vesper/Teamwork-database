@@ -8,7 +8,7 @@ namespace TeamVesper.SqlServerData.Migrations
         {
             // TODO set both false before production stage !Important
             this.AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
+            this.AutomaticMigrationDataLossAllowed = false;
         }
 
         //protected override void Seed(SqlServerDbContext context)

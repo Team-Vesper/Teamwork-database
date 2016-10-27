@@ -10,8 +10,6 @@ namespace TeamVesper.SqlServerData.Contracts
 
         IDbSet<Developer> Developers { get; set; }
 
-        IDbSet<SqlInitializer> Initializer { get; set; }
-
         IDbSet<Team> Teams { get; set; }
         
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;

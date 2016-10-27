@@ -19,8 +19,6 @@ namespace TeamVesper.SqlServerData
 
         public virtual IDbSet<Team> Teams { get; set; }
 
-        public virtual IDbSet<SqlInitializer> Initializer { get; set; }
-
         public new IDbSet<TEntity> Set<TEntity>()
             where TEntity : class
         {

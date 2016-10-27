@@ -19,12 +19,10 @@ namespace TeamVesper.DbCreate
 
             var sqlServerDbContext = new SqlServerDbContext();
 
-            var dateTimeProvider = new DateTimeProvider();
-            var init = new SqlInitializer(dateTimeProvider);
-
-            sqlServerDbContext.Initializer.Add(init);
-
-            sqlServerDbContext.SaveChanges();
+            using (sqlServerDbContext)
+            {
+                sqlServerDbContext.Database.CreateIfNotExists();
+            }
         }
     }
 }

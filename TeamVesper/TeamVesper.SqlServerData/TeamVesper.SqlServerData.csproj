@@ -52,7 +52,6 @@
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\ISqlServerDbContext.cs" />
     <Compile Include="EfRepository.cs" />
-    <Compile Include="SqlInitializer.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerDbContext.cs" />
