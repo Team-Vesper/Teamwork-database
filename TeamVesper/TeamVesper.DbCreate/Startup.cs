@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using TeamVesper.Models;
 using TeamVesper.SqlServerData;
 using TeamVesper.SqlServerData.Migrations;
 
@@ -14,11 +13,11 @@ namespace TeamVesper.DbCreate
 
         private static void SqlServerDbCreate()
         {
-            Database.SetInitializer(
-                new DropCreateDatabaseIfModelChanges<SqlServerDbContext>());
-
             //Database.SetInitializer(
-            //    new MigrateDatabaseToLatestVersion<SqlServerDbContext, Configuration>());
+            //    new DropCreateDatabaseAlways<SqlServerDbContext>());
+
+            Database.SetInitializer(
+                new MigrateDatabaseToLatestVersion<SqlServerDbContext, Configuration>());
 
             var sqlServerDbContext = new SqlServerDbContext();
 
