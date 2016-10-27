@@ -35,12 +35,49 @@ namespace TeamVesper.SqlServerData
                 .Entity<Developer>()
                 .Property(x => x.UserName)
                 .HasColumnAnnotation(
-                        IndexAnnotation.AnnotationName,
-                        new IndexAnnotation(
-                                new IndexAttribute("IX_UserName", 1)
-                                    {
-                                        IsUnique = true
-                                    }));
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(
+                            new IndexAttribute("IX_Developer_UserName", 1)
+                            {
+                                IsUnique = true,
+                                IsClustered = false
+                            }));
+
+            modelBuilder
+                .Entity<Team>()
+                .Property(x => x.Name)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(
+                            new IndexAttribute("IX_Speciality_Name", 1)
+                            {
+                                IsUnique = true,
+                                IsClustered = false
+                            }));
+
+            modelBuilder
+                .Entity<Speciality>()
+                .Property(x => x.Name)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(
+                            new IndexAttribute("IX_Speciality_Name", 1)
+                            {
+                                IsUnique = true,
+                                IsClustered = false
+                            }));
+
+            modelBuilder
+                .Entity<Priority>()
+                .Property(x => x.Name)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(
+                            new IndexAttribute("IX_Peiority_Name", 1)
+                            {
+                                IsUnique = true,
+                                IsClustered = false
+                            }));
 
             base.OnModelCreating(modelBuilder);
         }
