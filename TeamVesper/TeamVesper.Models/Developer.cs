@@ -15,6 +15,11 @@ namespace TeamVesper.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        [MinLength(2)]
+        [MaxLength(30)]
+        public string UserName { get; set; }
+
         [Required(ErrorMessage = "Developer first name is required")]
         [MinLength(2)]
         [MaxLength(50)]
@@ -34,6 +39,12 @@ namespace TeamVesper.Models
         public bool TeamLeader { get; set; }
 
         public virtual int TeamId { get; set; }
+
+        public virtual Team Team { get; set; }
+
+        public virtual int SpecialityId { get; set; }
+
+        public virtual Speciality Speciality { get; set; }
 
         public virtual ICollection<Bug> WorkingOn { get; set; }
     }

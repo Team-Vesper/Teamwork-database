@@ -14,6 +14,9 @@ namespace TeamVesper.DbCreate
 
         private static void SqlServerDbCreate()
         {
+            //Database.SetInitializer(
+            //    new DropCreateDatabaseIfModelChanges<SqlServerDbContext>());
+
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion<SqlServerDbContext, Configuration>());
 

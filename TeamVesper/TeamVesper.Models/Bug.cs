@@ -13,6 +13,10 @@ namespace TeamVesper.Models
         [MaxLength(1500)]
         public string Description { get; set; }
 
+        public virtual int PriorityId { get; set; }
+
+        public virtual Priority Priority { get; set; }
+
         public virtual Developer AttachedTo { get; set; }
 
         public DateTime? solvedOn { get; set; }

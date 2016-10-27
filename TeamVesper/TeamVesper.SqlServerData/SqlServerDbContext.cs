@@ -19,6 +19,10 @@ namespace TeamVesper.SqlServerData
 
         public virtual IDbSet<Team> Teams { get; set; }
 
+        public virtual IDbSet<Speciality> Specialities { get; set; }
+
+        public virtual IDbSet<Priority> Priorities { get; set; }
+
         public new IDbSet<TEntity> Set<TEntity>()
             where TEntity : class
         {
