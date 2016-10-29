@@ -12,10 +12,7 @@ namespace TeamVesper.Mappers
 
             foreach (var dev in devs)
             {
-                var spec = new Speciality()
-                {
-                    Name = dev.Speciality
-                };
+                var spec = new Speciality(dev.Speciality);
 
                 result.Add(spec);
             }
@@ -29,12 +26,9 @@ namespace TeamVesper.Mappers
 
             foreach (var dev in devs)
             {
-                var spec = new Team()
-                {
-                    Name = dev.Speciality
-                };
+                var team = new Team(dev.Speciality);
 
-                result.Add(spec);
+                result.Add(team);
             }
 
             return result;
@@ -50,6 +44,7 @@ namespace TeamVesper.Mappers
 
                 var newDev = new Developer()
                 {
+                    UserName = dev.Username,
                     FirstName = splitedNames[0],
                     // just in case there more then 2 names -> all after 1st goin in LastName by design
                     LastName = string.Join(" ", splitedNames.Skip(1).Take(splitedNames.Length - 1)),
