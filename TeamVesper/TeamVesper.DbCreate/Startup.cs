@@ -11,7 +11,7 @@ namespace TeamVesper.DbCreate
     {
         public static void Main()
         {
-            SqlServerDbCreate();
+            // SqlServerDbCreate();
             // MongoDBCreate();
         }
 
