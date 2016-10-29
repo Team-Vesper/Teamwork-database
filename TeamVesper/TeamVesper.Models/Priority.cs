@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using TeamVesper.Models.Contracts;
 
 namespace TeamVesper.Models
 {
-    public class Priority : IEntity
+    public class Priority
     {
         private string name;
         private ICollection<Bug> bugs;

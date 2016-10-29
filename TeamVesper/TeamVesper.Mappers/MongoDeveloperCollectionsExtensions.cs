@@ -2,7 +2,7 @@
 using System.Linq;
 using TeamVesper.Models;
 
-namespace TeamVesper.MongoDB.Models.Extension
+namespace TeamVesper.Mappers
 {
     public static class MongoDeveloperCollectionsExtensions
     {

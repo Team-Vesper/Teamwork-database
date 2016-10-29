@@ -43,10 +43,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TeamVesper.MongoDB.Models\TeamVesper.MongoDB.Models.csproj">
-      <Project>{d7df31aa-b475-435f-91a9-cc9a2491d2bd}</Project>
-      <Name>TeamVesper.MongoDB.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
       <Project>{ef03e9b3-f3a1-4aad-b2ad-2d3089f9e8b0}</Project>
       <Name>TeamVesper.Repositories</Name>

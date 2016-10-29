@@ -37,6 +37,7 @@ namespace TeamVesper.Repositories
 
         public IEnumerable<TEntity> All(Expression<Func<TEntity, bool>> predicate)
         {
+            // TODO get decision to list or not 
             // async generator
             return this.dbSet.Find(predicate).ToEnumerable();
 

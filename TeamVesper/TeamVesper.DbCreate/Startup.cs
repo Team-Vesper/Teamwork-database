@@ -1,7 +1,7 @@
 ﻿using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Data.Entity;
-using TeamVesper.MongoDB.Models;
+using TeamVesper.Models;
 using TeamVesper.SqlServerData;
 using TeamVesper.SqlServerData.Migrations;
 

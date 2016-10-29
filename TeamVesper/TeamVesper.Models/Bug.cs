@@ -1,10 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using TeamVesper.Models.Contracts;
 
 namespace TeamVesper.Models
 {
-    public class Bug : IEntity
+    public class Bug 
     {
         private int id;
         private string description;

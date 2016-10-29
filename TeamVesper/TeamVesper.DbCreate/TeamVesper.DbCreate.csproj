@@ -76,10 +76,6 @@
       <Project>{8746D04C-43B3-4DE3-9668-4169AB64FC15}</Project>
       <Name>TeamVesper.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TeamVesper.MongoDB.Models\TeamVesper.MongoDB.Models.csproj">
-      <Project>{d7df31aa-b475-435f-91a9-cc9a2491d2bd}</Project>
-      <Name>TeamVesper.MongoDB.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TeamVesper.SqlServerData\TeamVesper.SqlServerData.csproj">
       <Project>{e2263523-ad04-43a5-9390-f8ea35b3da2b}</Project>
       <Name>TeamVesper.SqlServerData</Name>

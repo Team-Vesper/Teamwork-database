@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using TeamVesper.Models.Contracts;
 
 namespace TeamVesper.Models
 {
-    public class Speciality : IEntity
+    public class Speciality
     {
         private string name;
         private ICollection<Developer> developers;
@@ -44,6 +43,8 @@ namespace TeamVesper.Models
                 {
                     throw new ArgumentException("Speciality name lenght should be in range 2-50 symbols!");
                 }
+
+                this.name = value;
             }
         }
 

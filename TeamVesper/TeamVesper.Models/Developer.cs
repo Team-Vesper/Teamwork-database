@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using TeamVesper.Models.Contracts;
 
 namespace TeamVesper.Models
 {
-    public class Developer : IEntity
+    public class Developer
     {
         private int id;
         private string userName;

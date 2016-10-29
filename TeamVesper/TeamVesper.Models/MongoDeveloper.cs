@@ -1,8 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using TeamVesper.Models;
 
-namespace TeamVesper.MongoDB.Models
+namespace TeamVesper.Models
 {
     public class MongoDeveloper
     {

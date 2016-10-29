@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using TeamVesper.Models.Contracts;
 
 namespace TeamVesper.Models
 {
-    public class Team : IEntity
+    public class Team
     {
         private string name;
         private ICollection<Developer> developers;

@@ -9,11 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.SqlServerData", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.DbCreate", "TeamVesper.DbCreate\TeamVesper.DbCreate.csproj", "{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.MongoDB.Models", "TeamVesper.MongoDB.Models\TeamVesper.MongoDB.Models.csproj", "{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.Repositories", "TeamVesper.Repositories\TeamVesper.Repositories.csproj", "{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.MongoDB.Import", "TeamVesper.MongoDB.Import\TeamVesper.MongoDB.Import.csproj", "{0983BC01-385E-46E8-B40B-8811462E9A66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.Mappers", "TeamVesper.Mappers\TeamVesper.Mappers.csproj", "{E666DEB1-C969-4560-B143-26C96B2D9D37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +33,6 @@ Global
 		{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7DF31AA-B475-435F-91A9-CC9A2491D2BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{0983BC01-385E-46E8-B40B-8811462E9A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0983BC01-385E-46E8-B40B-8811462E9A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0983BC01-385E-46E8-B40B-8811462E9A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E666DEB1-C969-4560-B143-26C96B2D9D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E666DEB1-C969-4560-B143-26C96B2D9D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E666DEB1-C969-4560-B143-26C96B2D9D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E666DEB1-C969-4560-B143-26C96B2D9D37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TeamVesper.MongoDB.Models")]
+[assembly: AssemblyTitle("TeamVesper.Mappers")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TeamVesper.MongoDB.Models")]
+[assembly: AssemblyProduct("TeamVesper.Mappers")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d7df31aa-b475-435f-91a9-cc9a2491d2bd")]
+[assembly: Guid("e666deb1-c969-4560-b143-26c96b2d9d37")]
 
 // Version information for an assembly consists of the following four values:
 //
