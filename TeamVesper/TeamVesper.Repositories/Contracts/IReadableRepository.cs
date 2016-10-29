@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace TeamVesper.Repositories.Contracts
 {
@@ -6,6 +8,6 @@ namespace TeamVesper.Repositories.Contracts
     {
         IEnumerable<TEntity> All();
 
-        TEntity FindById(object id);
+        IEnumerable<TEntity> All(Expression<Func<TEntity, bool>> predicate);
     }
 }

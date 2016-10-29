@@ -1,14 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using TeamVesper.Models.Contracts;
 
 namespace TeamVesper.Models
 {
-    public class Priority
+    public class Priority : IEntity
     {
+        private string name;
         private ICollection<Bug> bugs;
 
         public Priority()
         {
+            this.bugs = new HashSet<Bug>();
+        }
+
+        public Priority(string name)
+        {
+            this.Name = name;
             this.bugs = new HashSet<Bug>();
         }
 
@@ -18,7 +27,27 @@ namespace TeamVesper.Models
         [Required]
         [MinLength(2)]
         [MaxLength(30)]
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Priority name!");
+                }
+
+                if (value.Length < 2 || 30 < value.Length)
+                {
+                    throw new ArgumentException("Priority name lenght should be in range 2-30 symbols!");
+                }
+
+                this.name = value;
+            }
+        }
 
         public virtual ICollection<Bug> Bugs
         {

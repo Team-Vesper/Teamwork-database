@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using TeamVesper.Repositories.Contracts;
 
 namespace TeamVesper.Repositories
@@ -18,7 +19,7 @@ namespace TeamVesper.Repositories
 
         public abstract IEnumerable<TEntity> All();
 
-        public abstract TEntity FindById(object id);
+        public abstract IEnumerable<TEntity> All(Expression<Func<TEntity, bool>> predicate);
 
         public abstract void Remove(TEntity entity);
 
