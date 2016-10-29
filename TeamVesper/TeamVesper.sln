@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.DbCreate", "Team
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.Repositories", "TeamVesper.Repositories\TeamVesper.Repositories.csproj", "{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.MongoDB.Import", "TeamVesper.MongoDB.Import\TeamVesper.MongoDB.Import.csproj", "{0983BC01-385E-46E8-B40B-8811462E9A66}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.Mappers", "TeamVesper.Mappers\TeamVesper.Mappers.csproj", "{E666DEB1-C969-4560-B143-26C96B2D9D37}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0983BC01-385E-46E8-B40B-8811462E9A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0983BC01-385E-46E8-B40B-8811462E9A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0983BC01-385E-46E8-B40B-8811462E9A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0983BC01-385E-46E8-B40B-8811462E9A66}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E666DEB1-C969-4560-B143-26C96B2D9D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E666DEB1-C969-4560-B143-26C96B2D9D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E666DEB1-C969-4560-B143-26C96B2D9D37}.Release|Any CPU.ActiveCfg = Release|Any CPU

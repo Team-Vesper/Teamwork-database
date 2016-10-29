@@ -2,10 +2,11 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using TeamVesper.Models;
+using TeamVesper.Repositories.Contracts;
 
 namespace TeamVesper.SqlServerData.Contracts
 {
-    public interface ISqlServerDbContext
+    public interface ICurrentSqlServerDbContext : ISqlServerDbContext
     {
         IDbSet<Bug> Bugs { get; set; }
 
@@ -16,11 +17,5 @@ namespace TeamVesper.SqlServerData.Contracts
         IDbSet<Speciality> Specialities { get; set; }
 
         IDbSet<Priority> Priorities { get; set; }
-
-        IDbSet<TEntity> Set<TEntity>() where TEntity : class;
-
-        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
-
-        int SaveChanges();
     }
 }
