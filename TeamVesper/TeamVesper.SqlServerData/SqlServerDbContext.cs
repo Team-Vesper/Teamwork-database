@@ -10,8 +10,8 @@ namespace TeamVesper.SqlServerData
 {
     public class SqlServerDbContext : DbContext, ICurrentSqlServerDbContext, ISqlServerDbContext
     {
-        public SqlServerDbContext()
-            : base("TeamVesperSqlServer")
+        public SqlServerDbContext(string nameOfConnectionString = "TeamVesperSqlServer")
+            : base(nameOfConnectionString)
         {
         }
 

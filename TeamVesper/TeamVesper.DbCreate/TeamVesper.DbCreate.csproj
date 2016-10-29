@@ -76,6 +76,10 @@
       <Project>{8746D04C-43B3-4DE3-9668-4169AB64FC15}</Project>
       <Name>TeamVesper.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
+      <Project>{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}</Project>
+      <Name>TeamVesper.Repositories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamVesper.SqlServerData\TeamVesper.SqlServerData.csproj">
       <Project>{e2263523-ad04-43a5-9390-f8ea35b3da2b}</Project>
       <Name>TeamVesper.SqlServerData</Name>
