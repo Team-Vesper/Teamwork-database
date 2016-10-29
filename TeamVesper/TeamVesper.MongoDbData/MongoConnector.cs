@@ -1,9 +1,11 @@
 ﻿using MongoDB.Driver;
 using System;
+using TeamVesper.Models;
 
 namespace TeamVesper.MongoDbData
 {
     public class MongoConnector<TEntity>
+        where TEntity : MongoDeveloper
     {
         private IMongoClient client;
         private IMongoDatabase dbContext;
