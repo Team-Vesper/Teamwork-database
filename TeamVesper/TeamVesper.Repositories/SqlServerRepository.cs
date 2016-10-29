@@ -13,7 +13,6 @@ namespace TeamVesper.Repositories
         private IDbSet<TEntity> dbSet;
         private ISqlServerDbContext dbContext;
 
-        // IDbSet<TEntity> dbSet
         public SqlServerRepository(ISqlServerDbContext context)
         {
             this.DbContext = context;
@@ -92,12 +91,20 @@ namespace TeamVesper.Repositories
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            var dbEntry = this.dbContext.Entry(entity);
+            dbEntry.State = EntityState.Modified;
+            this.dbContext.SaveChanges();
         }
 
         public void UpdateMany(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            foreach (var entity in entities)
+            {
+                var dbEntry = this.dbContext.Entry(entity);
+                dbEntry.State = EntityState.Modified;
+            }
+
+            this.dbContext.SaveChanges();
         }
     }
 }
