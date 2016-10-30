@@ -10,18 +10,12 @@ namespace TeamVesper.DbCreate
     public class Startup
     {
         public static void Main()
-        {
-            //var excelArchivePath = "../../../Bugs.zip";
-            //var bugs = new List<Bug>();
-            //bugs = ExcelReader.Read(excelArchivePath);
+        {          
             SqlServerDbCreate();
-            //var sqlSever = new SqlServerDbContext();
-            //foreach (var bug in bugs)
-            //{
-            //    sqlSever.Bugs.Add(bug);
-            //}
+            AddPriorities.Add();
 
-            //sqlSever.SaveChanges();
+
+            
 
             // MongoDBCreate();
         }

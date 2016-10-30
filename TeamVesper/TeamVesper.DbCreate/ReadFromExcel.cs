@@ -54,7 +54,6 @@
                     while (reader.Read())
                     {
                         var bug = new Bug();
-                      //  bug.Id = int.Parse(reader["ID"].ToString());
                         bug.Description = reader["Description"].ToString();
                         bug.PriorityId = int.Parse(reader["Priority"].ToString());
                         var tempDate = new DateTime();
