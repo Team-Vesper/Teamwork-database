@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.Mappers", "TeamV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.MongoDbData", "TeamVesper.MongoDbData\TeamVesper.MongoDbData.csproj", "{660E9392-AF53-4BEB-A82D-1BE030DD6C19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.ExportToJson", "TeamVesper.ExportToJson\TeamVesper.ExportToJson.csproj", "{1292B4C0-EC49-4792-B0CA-412E49B04059}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{660E9392-AF53-4BEB-A82D-1BE030DD6C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{660E9392-AF53-4BEB-A82D-1BE030DD6C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{660E9392-AF53-4BEB-A82D-1BE030DD6C19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1292B4C0-EC49-4792-B0CA-412E49B04059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1292B4C0-EC49-4792-B0CA-412E49B04059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1292B4C0-EC49-4792-B0CA-412E49B04059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1292B4C0-EC49-4792-B0CA-412E49B04059}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
