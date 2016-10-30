@@ -10,24 +10,24 @@ namespace TeamVesper.DbCreate
     public class Startup
     {
         public static void Main()
-        {          
+        {
+            //Database.SetInitializer(
+            //    new DropCreateDatabaseAlways<SqlServerDbContext>());
+
+            Database.SetInitializer(
+                    new MigrateDatabaseToLatestVersion<SqlServerDbContext, Configuration>());
+
             SqlServerDbCreate();
             AddPriorities.Add();
 
 
-            
+
 
             // MongoDBCreate();
         }
 
         private static void SqlServerDbCreate()
         {
-            //Database.SetInitializer(
-            //    new DropCreateDatabaseAlways<SqlServerDbContext>());
-
-            Database.SetInitializer(
-                new MigrateDatabaseToLatestVersion<SqlServerDbContext, Configuration>());
-
             var sqlServerDbContext = new SqlServerDbContext();
 
             using (sqlServerDbContext)

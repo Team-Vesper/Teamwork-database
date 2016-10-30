@@ -11,13 +11,17 @@ namespace TeamVesper.SqlServerData
 {
     public class SqlServerDbContext : DbContext, ICurrentSqlServerDbContext, ISqlServerDbContext
     {
-        public SqlServerDbContext(string nameOfConnectionString = @"Data Source=.\SQLEXPRESS;
-                                                                    Initial Catalog=TeamVesperSqlServer;
-                                                                    Integrated Security=True;
-                                                                    MultipleActiveResultSets=True")
-            : base(nameOfConnectionString)
+
+        public SqlServerDbContext()
+            :base ("TeamVesperSqlServer")
         {
+
         }
+
+        //public SqlServerDbContext(string nameOfConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=TeamVesperSqlServer;Integrated Security=True;MultipleActiveResultSets=True")
+        //    : base()
+        //{
+        //}
 
         public virtual IDbSet<Developer> Developers { get; set; }
 
@@ -34,6 +38,8 @@ namespace TeamVesper.SqlServerData
         {
             return base.Set<TEntity>();
         }
+
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
