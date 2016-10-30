@@ -26,7 +26,7 @@ namespace TeamVesper.Mappers
 
             foreach (var dev in devs)
             {
-                var team = new Team(dev.Speciality);
+                var team = new Team(dev.Team);
 
                 result.Add(team);
             }
