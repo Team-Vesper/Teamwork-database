@@ -8,17 +8,15 @@ using TeamVesper.Repositories.Contracts;
 namespace TeamVesper.ExportToJson
 {
     public class JsonToFile<TEntity> : IReporter<TEntity>
-        where TEntity : Developer
+        where TEntity : MongoDeveloper
     {
         private string folderPath;
         private IJsonSeriliazer seriliazer;
-        private string type;
 
         public JsonToFile(string folderPath, IJsonSeriliazer seriliazer = null)
         {
             this.FolderPath = folderPath;
             this.Seriliazer = seriliazer;
-            this.type = typeof(TEntity).Name;
         }
 
         private string FolderPath
@@ -71,7 +69,7 @@ namespace TeamVesper.ExportToJson
         {
             var json = this.seriliazer.Seriliaze(entity);
 
-            var writer = new StreamWriter(this.folderPath + "/" + this.type + entity.Id + ".json", false);
+            var writer = new StreamWriter(this.folderPath + "/developer" + entity.Id + ".json", false);
 
             using (writer)
             {
