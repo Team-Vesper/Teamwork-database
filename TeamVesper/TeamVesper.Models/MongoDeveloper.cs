@@ -29,18 +29,25 @@ namespace TeamVesper.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
+        [BsonElement("userName")]
         public string Username { get; set; }
 
+        [BsonElement("fullName")]
         public string FullName { get; set; }
 
+        [BsonElement("age")]
         public int Age { get; set; }
 
+        [BsonElement("salary")]
         public int Salary { get; set; }
 
+        [BsonElement("speciality")]
         public string Speciality { get; set; }
 
+        [BsonElement("team")]
         public string Team { get; set; }
 
+        [BsonElement("isTeamLeader")]
         public bool isTeamLeader { get; set; }
     }
 }
