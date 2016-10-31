@@ -15,7 +15,11 @@ namespace TeamVesper.DbCreate
 
             foreach (var bug in bugs)
             {
-                sqlSever.Bugs.Add(bug);
+                var find = sqlSever.Bugs.Find(bug);
+                if (find == null)
+                {
+                    sqlSever.Bugs.Add(bug);
+                }
             }
 
             sqlSever.SaveChanges();

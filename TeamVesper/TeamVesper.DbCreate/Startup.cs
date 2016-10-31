@@ -19,9 +19,7 @@ namespace TeamVesper.DbCreate
 
             SqlServerDbCreate();
             AddPriorities.Add();
-
-
-
+            AddBugsToDB.Add();
 
             // MongoDBCreate();
         }

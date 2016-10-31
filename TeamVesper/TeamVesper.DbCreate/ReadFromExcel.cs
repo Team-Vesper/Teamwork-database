@@ -17,6 +17,10 @@
             var bugs = new List<Bug>();
             using (ZipArchive archive = ZipFile.Open(path, ZipArchiveMode.Update))
             {
+                if (!Directory.Exists(extractPath))
+                {
+                    Directory.CreateDirectory(extractPath);
+                }
                 foreach (ZipArchiveEntry entry in archive.Entries)
                 {
                     if (entry.FullName.EndsWith(".xlsx"))

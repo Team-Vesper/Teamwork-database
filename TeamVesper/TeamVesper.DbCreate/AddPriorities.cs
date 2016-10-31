@@ -14,18 +14,18 @@ namespace TeamVesper.DbCreate
             priorities[1] = "Important";
             priorities[2] = "Not Important";
             priorities[3] = "Don't care";
-            foreach (var pr in sqlSever.Priorities.ToList())
-            {
-                sqlSever.Priorities.Remove(pr);
-            }
 
             foreach (var pr in priorities)
             {
                 Priority priority = new Priority(pr);
-                sqlSever.Priorities.Add(priority);
+                var find = sqlSever.Priorities.Find(priority);
+                if (find == null)
+                {
+                    sqlSever.Priorities.Add(priority);
+                }
             }
-            sqlSever.SaveChanges();
 
+            sqlSever.SaveChanges();
         }
     }
 }
