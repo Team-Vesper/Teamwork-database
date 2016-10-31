@@ -69,6 +69,7 @@
     <Compile Include="AddBugsToDB.cs" />
     <Compile Include="AddPriorities.cs" />
     <Compile Include="AddSpecialities.cs" />
+    <Compile Include="AssignBugs.cs" />
     <Compile Include="ReadFromExcel.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +82,10 @@
     <ProjectReference Include="..\TeamVesper.Models\TeamVesper.Models.csproj">
       <Project>{8746D04C-43B3-4DE3-9668-4169AB64FC15}</Project>
       <Name>TeamVesper.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.MongoDbData\TeamVesper.MongoDbData.csproj">
+      <Project>{660E9392-AF53-4BEB-A82D-1BE030DD6C19}</Project>
+      <Name>TeamVesper.MongoDbData</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
       <Project>{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}</Project>

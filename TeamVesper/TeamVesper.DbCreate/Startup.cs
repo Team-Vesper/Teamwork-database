@@ -21,6 +21,7 @@ namespace TeamVesper.DbCreate
             AddPriorities.Add();
             AddSpecialities.Add();
             AddBugsToDB.Add();
+            // AssignBugs.Assign();
 
             // MongoDBCreate();
         }
