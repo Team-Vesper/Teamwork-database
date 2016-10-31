@@ -66,6 +66,10 @@ namespace TeamVesper.Models
 
         public virtual Priority Priority { get; set; }
 
+        public virtual int SpecialityId { get; set; }
+
+        public virtual Speciality Speciality { get; set; }
+
         public virtual Developer AttachedTo { get; set; }
 
         public DateTime? solvedOn { get; set; }

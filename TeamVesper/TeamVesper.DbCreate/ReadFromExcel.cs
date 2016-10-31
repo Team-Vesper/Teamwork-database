@@ -60,6 +60,7 @@
                         var bug = new Bug();
                         bug.Description = reader["Description"].ToString();
                         bug.PriorityId = int.Parse(reader["Priority"].ToString());
+                        bug.SpecialityId = int.Parse(reader["Speciality"].ToString());
                         var tempDate = new DateTime();
                         if (DateTime.TryParse(reader["solvedOn"].ToString(), out tempDate))
                         {

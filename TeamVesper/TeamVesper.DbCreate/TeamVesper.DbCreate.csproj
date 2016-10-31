@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="AddBugsToDB.cs" />
     <Compile Include="AddPriorities.cs" />
+    <Compile Include="AddSpecialities.cs" />
     <Compile Include="ReadFromExcel.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
