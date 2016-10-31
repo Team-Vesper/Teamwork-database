@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TeamVesper.Models;
 using TeamVesper.SqlServerData;
 
@@ -15,8 +16,10 @@ namespace TeamVesper.DbCreate
 
             foreach (var bug in bugs)
             {
-                var find = sqlSever.Bugs.Find(bug);
-                if (find == null)
+                if (sqlSever.Bugs.Any(b => b.Id == bug.Id))
+                {
+                }
+                else
                 {
                     sqlSever.Bugs.Add(bug);
                 }

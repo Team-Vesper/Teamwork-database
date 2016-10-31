@@ -17,10 +17,12 @@ namespace TeamVesper.DbCreate
 
             foreach (var pr in priorities)
             {
-                Priority priority = new Priority(pr);
-                var find = sqlSever.Priorities.Find(priority);
-                if (find == null)
+                if (sqlSever.Priorities.Any(p => p.Name == pr))
                 {
+                }
+                else
+                {
+                    Priority priority = new Priority(pr);
                     sqlSever.Priorities.Add(priority);
                 }
             }
