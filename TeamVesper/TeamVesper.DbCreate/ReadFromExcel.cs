@@ -35,7 +35,11 @@
                             connection.Open();
                             var excelSchema = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
                             var sheetName = excelSchema.Rows[0]["TABLE_NAME"].ToString();
-                            bugs = ReadExcelData(connection, sheetName);
+                            var tempBugs = ReadExcelData(connection, sheetName);
+                            foreach (var bug in tempBugs)
+                            {
+                                bugs.Add(bug);
+                            }
                         }
                         File.Delete(Path.Combine(extractPath, entry.Name));
                     }

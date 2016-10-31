@@ -16,7 +16,7 @@ namespace TeamVesper.DbCreate
 
             foreach (var bug in bugs)
             {
-                if (sqlSever.Bugs.Any(b => b.Id == bug.Id))
+                if (sqlSever.Bugs.Any(b => b.Description == bug.Description))
                 {
                 }
                 else
