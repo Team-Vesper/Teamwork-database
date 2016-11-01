@@ -21,17 +21,17 @@ namespace TeamVesper.DbCreate
             Database.SetInitializer(
                     new MigrateDatabaseToLatestVersion<SqlServerDbContext, Configuration>());
 
+            // MongoDBCreate();
+
             SqlServerDbCreate();
             PrioritiesDB.Add();
             SpecialitiesDB.Add();
-            DevelopersDB.AddFromMongo();
+            DevelopersActions.AddFromMongo();
 
             var bugList = ExcelImporter.ImportBugs(zipPath);            
             BugsDB.Add(bugList);
             // BugActions.Assign();
-
-            // MongoDBCreate();
-
+            
             SQLiteDbCreate();
         }
 
