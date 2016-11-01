@@ -115,16 +115,16 @@ namespace TeamVesper.DbCreate
             connection.Open();
 
             string sqLiteDbCompanyTableCreationQuery = @"CREATE TABLE Companies(
-                                                             Id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                                                             Name VARCHAR(50))";
-            SQLiteCommand createCompany = new SQLiteCommand(sqLiteDbCompanyTableCreationQuery, connection);
-            createCompany.ExecuteNonQuery();
+                                                             Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+                                                             Name VARCHAR(50) NOT NULL)";
+            SQLiteCommand createCompanies = new SQLiteCommand(sqLiteDbCompanyTableCreationQuery, connection);
+            createCompanies.ExecuteNonQuery();
 
             string sqLiteDbEmployeesTableCreationQuery = @"CREATE TABLE Employees(
-                                                               Id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                                                               FullName VARCHAR(30),
-                                                               Salary MONEY, 
-                                                               CompanyId INTEGER,
+                                                               Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+                                                               FullName VARCHAR(30) NOT NULL,
+                                                               Salary MONEY NOT NULL, 
+                                                               CompanyId INTEGER NOT NULL,
                                                                FOREIGN KEY(CompanyId) REFERENCES Companies(Id))";
             SQLiteCommand createEmployees = new SQLiteCommand(sqLiteDbEmployeesTableCreationQuery, connection);
             createEmployees.ExecuteNonQuery();
