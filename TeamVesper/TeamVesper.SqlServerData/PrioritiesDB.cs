@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using TeamVesper.Models;
-using TeamVesper.SqlServerData;
-
-namespace TeamVesper.DbCreate
+﻿namespace TeamVesper.SqlServerData
 {
-    public static class AddPriorities
+    using System.Linq;
+    using Models;
+
+    public static class PrioritiesDB
     {
         public static void Add()
         {

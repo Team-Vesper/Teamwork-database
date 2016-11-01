@@ -1,18 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using TeamVesper.Models;
-using TeamVesper.SqlServerData;
-
-namespace TeamVesper.DbCreate
+﻿namespace TeamVesper.SqlServerData
 {
-    public static class AddBugsToDB
+    using System.Collections.Generic;
+    using System.Linq;
+    using Models;
+
+    public static class BugsDB
     {
-        public static void Add()
+        public static void Add(List<Bug> bugs)
         {
-            var excelArchivePath = "../../../Bugs.zip";
             var sqlSever = new SqlServerDbContext();
-            var bugs = new List<Bug>();
-            bugs = ExcelReader.Read(excelArchivePath);
 
             foreach (var bug in bugs)
             {

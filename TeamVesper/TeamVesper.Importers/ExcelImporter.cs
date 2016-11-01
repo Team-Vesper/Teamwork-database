@@ -1,4 +1,4 @@
-﻿namespace TeamVesper.DbCreate
+﻿namespace TeamVesper.Importers
 {
     using System;
     using System.Collections.Generic;
@@ -8,11 +8,11 @@
     using System.IO.Compression;
     using Models;
 
-    public static class ExcelReader
+    public static class ExcelImporter
     {
         private const string extractPath = "../../../Bugs";
 
-        public static List<Bug> Read(string path)
+        public static List<Bug> ImportBugs(string path)
         {
             var bugs = new List<Bug>();
             using (ZipArchive archive = ZipFile.Open(path, ZipArchiveMode.Update))

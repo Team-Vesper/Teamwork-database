@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.SQLite;
+using TeamVesper.Importers;
 using TeamVesper.Models;
 using TeamVesper.SqlServerData;
 using TeamVesper.SqlServerData.Migrations;
+using TeamVesper.Utilities;
 
 namespace TeamVesper.DbCreate
 {
@@ -12,6 +14,7 @@ namespace TeamVesper.DbCreate
     {
         public static void Main()
         {
+            const string zipPath = "../../../Bugs.zip";
             //Database.SetInitializer(
             //    new DropCreateDatabaseAlways<SqlServerDbContext>());
 
@@ -19,10 +22,13 @@ namespace TeamVesper.DbCreate
                     new MigrateDatabaseToLatestVersion<SqlServerDbContext, Configuration>());
 
             SqlServerDbCreate();
-            AddPriorities.Add();
-            AddSpecialities.Add();
-            AddBugsToDB.Add();
-            // AssignBugs.Assign();
+            PrioritiesDB.Add();
+            SpecialitiesDB.Add();
+            DevelopersDB.AddFromMongo();
+
+            var bugList = ExcelImporter.ImportBugs(zipPath);            
+            BugsDB.Add(bugList);
+            // BugActions.Assign();
 
             // MongoDBCreate();
 

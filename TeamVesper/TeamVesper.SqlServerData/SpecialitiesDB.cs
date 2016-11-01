@@ -1,10 +1,9 @@
-﻿namespace TeamVesper.DbCreate
+﻿namespace TeamVesper.SqlServerData
 {
     using System.Linq;
     using Models;
-    using SqlServerData;
 
-    class AddSpecialities
+    public static class SpecialitiesDB
     {
         public static void Add()
         {

@@ -80,11 +80,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBugsToDB.cs" />
-    <Compile Include="AddPriorities.cs" />
-    <Compile Include="AddSpecialities.cs" />
-    <Compile Include="AssignBugs.cs" />
-    <Compile Include="ReadFromExcel.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +88,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TeamVesper.Importers\TeamVesper.Importers.csproj">
+      <Project>{f41ff9df-0a25-4952-82c4-8912847e5135}</Project>
+      <Name>TeamVesper.Importers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamVesper.Models\TeamVesper.Models.csproj">
       <Project>{8746D04C-43B3-4DE3-9668-4169AB64FC15}</Project>
       <Name>TeamVesper.Models</Name>
@@ -108,6 +107,10 @@
     <ProjectReference Include="..\TeamVesper.SqlServerData\TeamVesper.SqlServerData.csproj">
       <Project>{e2263523-ad04-43a5-9390-f8ea35b3da2b}</Project>
       <Name>TeamVesper.SqlServerData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.Utilities\TeamVesper.Utilities.csproj">
+      <Project>{240d9f05-bec7-4de1-9544-04a0325495eb}</Project>
+      <Name>TeamVesper.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

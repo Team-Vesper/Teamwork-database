@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E2263523-AD04-43A5-9390-F8EA35B3DA2B}</ProjectGuid>
+    <ProjectGuid>{240D9F05-BEC7-4DE1-9544-04A0325495EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TeamVesper.SqlServerData</RootNamespace>
-    <AssemblyName>TeamVesper.SqlServerData</AssemblyName>
+    <RootNamespace>TeamVesper.Utilities</RootNamespace>
+    <AssemblyName>TeamVesper.Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,28 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DevelopersDB.cs" />
-    <Compile Include="PrioritiesDB.cs" />
-    <Compile Include="SpecialitiesDB.cs" />
-    <Compile Include="BugsDB.cs" />
-    <Compile Include="Contracts\ICurrentSqlServerDbContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="BugActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlServerDbContext.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeamVesper.Models\TeamVesper.Models.csproj">
       <Project>{8746d04c-43b3-4de3-9668-4169ab64fc15}</Project>
       <Name>TeamVesper.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
-      <Project>{ef03e9b3-f3a1-4aad-b2ad-2d3089f9e8b0}</Project>
-      <Name>TeamVesper.Repositories</Name>
+    <ProjectReference Include="..\TeamVesper.SqlServerData\TeamVesper.SqlServerData.csproj">
+      <Project>{e2263523-ad04-43a5-9390-f8ea35b3da2b}</Project>
+      <Name>TeamVesper.SqlServerData</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

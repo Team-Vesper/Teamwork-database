@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.MongoDbData", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.ExportToJson", "TeamVesper.ExportToJson\TeamVesper.ExportToJson.csproj", "{1292B4C0-EC49-4792-B0CA-412E49B04059}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.Importers", "TeamVesper.Importers\TeamVesper.Importers.csproj", "{F41FF9DF-0A25-4952-82C4-8912847E5135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.Utilities", "TeamVesper.Utilities\TeamVesper.Utilities.csproj", "{240D9F05-BEC7-4DE1-9544-04A0325495EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{1292B4C0-EC49-4792-B0CA-412E49B04059}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1292B4C0-EC49-4792-B0CA-412E49B04059}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1292B4C0-EC49-4792-B0CA-412E49B04059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F41FF9DF-0A25-4952-82C4-8912847E5135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F41FF9DF-0A25-4952-82C4-8912847E5135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F41FF9DF-0A25-4952-82C4-8912847E5135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F41FF9DF-0A25-4952-82C4-8912847E5135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240D9F05-BEC7-4DE1-9544-04A0325495EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240D9F05-BEC7-4DE1-9544-04A0325495EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240D9F05-BEC7-4DE1-9544-04A0325495EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240D9F05-BEC7-4DE1-9544-04A0325495EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
