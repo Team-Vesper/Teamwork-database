@@ -14,7 +14,9 @@ namespace TeamVesper.DbCreate
     {
         public static void Main()
         {
-            const string zipPath = "../../../Bugs.zip";
+            //const string zipPath = "../../../Bugs.zip";
+
+
             //Database.SetInitializer(
             //    new DropCreateDatabaseAlways<SqlServerDbContext>());
 
@@ -23,16 +25,17 @@ namespace TeamVesper.DbCreate
 
             // MongoDBCreate();
 
-            SqlServerDbCreate();
-            PrioritiesDB.Add();
-            SpecialitiesDB.Add();
-            DevelopersActions.AddFromMongo();
+            //SqlServerDbCreate();
 
-            var bugList = ExcelImporter.ImportBugs(zipPath);            
-            BugsDB.Add(bugList);
+            //SQLiteDbCreate();
+
+            //PrioritiesDB.Add();
+            //SpecialitiesDB.Add();
+            //DevelopersActions.AddFromMongo();
+
+            //var bugList = ExcelImporter.ImportBugs(zipPath);            
+            //BugsDB.Add(bugList);
             // BugActions.Assign();
-            
-            SQLiteDbCreate();
         }
 
         private static void SqlServerDbCreate()

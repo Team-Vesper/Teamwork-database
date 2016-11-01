@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.Importers", "Tea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.Utilities", "TeamVesper.Utilities\TeamVesper.Utilities.csproj", "{240D9F05-BEC7-4DE1-9544-04A0325495EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoingRandomTests", "DoingRandomTests\DoingRandomTests.csproj", "{31EF887A-0762-478C-A6F6-20FA9094487E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{240D9F05-BEC7-4DE1-9544-04A0325495EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{240D9F05-BEC7-4DE1-9544-04A0325495EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{240D9F05-BEC7-4DE1-9544-04A0325495EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31EF887A-0762-478C-A6F6-20FA9094487E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31EF887A-0762-478C-A6F6-20FA9094487E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31EF887A-0762-478C-A6F6-20FA9094487E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31EF887A-0762-478C-A6F6-20FA9094487E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
