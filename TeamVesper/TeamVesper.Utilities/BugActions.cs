@@ -15,13 +15,13 @@
                 {
                     var developer = sqlServer.Developers
                         .Where(d => d.SpecialityId == bug.SpecialityId)
-                        .OrderByDescending(d => d.WorkingOn.Count)
+                        .OrderBy(d => d.WorkingOn.Count)
                         .FirstOrDefault();
                     developer.WorkingOn.Add(bug);
                     bug.AttachedTo = developer;
-                }                
+                    sqlServer.SaveChanges();
+                }
             }
-            sqlServer.SaveChanges();
         }
     }
 }

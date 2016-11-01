@@ -4,15 +4,14 @@ using TeamVesper.Mappers;
 
 namespace DoingRandomTests
 {
-    class RandomThings
+    public static class RandomThings
     {
-        static void Main()
+        public static void Main()
         {
-           
 
         }
 
-        private IEnumerable<MongoDeveloper> GetMongoDevelopers()
+        private static IEnumerable<MongoDeveloper> GetMongoDevelopers()
         {
             ICollection<MongoDeveloper> MongoDevs = new List<MongoDeveloper>();
 
@@ -57,17 +56,17 @@ namespace DoingRandomTests
             return MongoDevs;
         }
 
-        private IEnumerable<Developer> GetDevelopers()
+        public static IEnumerable<Developer> GetDevelopers()
         {
             return GetMongoDevelopers().Developers();
         }
 
-        private IEnumerable<Speciality> GetSpecialities()
+        public static IEnumerable<Speciality> GetSpecialities()
         {
             return GetMongoDevelopers().Specialities();
         }
 
-        private IEnumerable<Team> GetTeams()
+        public static IEnumerable<Team> GetTeams()
         {
             return GetMongoDevelopers().Teams();
         }

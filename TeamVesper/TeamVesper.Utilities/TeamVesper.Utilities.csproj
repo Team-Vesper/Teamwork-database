@@ -66,6 +66,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DoingRandomTests\DoingRandomTests.csproj">
+      <Project>{31ef887a-0762-478c-a6f6-20fa9094487e}</Project>
+      <Name>DoingRandomTests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamVesper.Mappers\TeamVesper.Mappers.csproj">
       <Project>{e666deb1-c969-4560-b143-26c96b2d9d37}</Project>
       <Name>TeamVesper.Mappers</Name>
