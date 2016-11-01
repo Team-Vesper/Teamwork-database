@@ -57,7 +57,7 @@ namespace DoingRandomTests
             return MongoDevs;
         }
 
-        private IEnumerable<Developer> FetDevelopers()
+        private IEnumerable<Developer> GetDevelopers()
         {
             return GetMongoDevelopers().Developers();
         }
