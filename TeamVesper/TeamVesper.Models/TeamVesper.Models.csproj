@@ -80,9 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bug.cs" />
+    <Compile Include="BugReport.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Contracts\IEntity.cs" />
     <Compile Include="Developer.cs" />
+    <Compile Include="DTOEducation.cs" />
     <Compile Include="Education.cs" />
     <Compile Include="MongoDeveloper.cs" />
     <Compile Include="Priority.cs" />

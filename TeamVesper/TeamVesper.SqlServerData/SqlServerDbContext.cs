@@ -33,13 +33,13 @@ namespace TeamVesper.SqlServerData
 
         public virtual IDbSet<Priority> Priorities { get; set; }
 
+        public virtual IDbSet<Education> Educations { get; set; }
+
         public new IDbSet<TEntity> Set<TEntity>()
             where TEntity : class
         {
             return base.Set<TEntity>();
         }
-
-       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
