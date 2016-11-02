@@ -3,23 +3,45 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
-using TeamVesper.XmlDataReader.Models;
 using TeamVesper.XmlDataReader.Contracts;
+using TeamVesper.Models;
+using System;
 
 namespace TeamVesper.XmlDataReader
 {
     public class XmlToDTOEducationConverter : IXmlToDTOEducationConverter
     {
-        public XmlToDTOEducationConverter(string path)
+        private string filePath;
+
+        public XmlToDTOEducationConverter(string filePath)
         {
-            this.Path = path;
+            this.FilePath = filePath;
         }
 
-        public string Path { get; set; }
+        private string FilePath
+        {
+            get
+            {
+                return this.filePath;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("XML file path cannot be null!");
+                }
+
+                if (value == string.Empty)
+                {
+                    throw new ArgumentException("XML file path cannot be empty string!");
+                }
+            }
+        }
 
         public IEnumerable<DTOEducation> GetAllDeveloppersEducations()
         {
-            var xmlDocument = XDocument.Load(this.Path);
+            var xmlDocument = XDocument.Load(this.FilePath);
             var xmlFormatEducations = xmlDocument.Descendants("developperEducation");
             var pocoEducations = new List<DTOEducation>();
 

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-
-using TeamVesper.XmlDataReader.Models;
+using TeamVesper.Models;
 
 namespace TeamVesper.XmlDataReader.Contracts
 {
