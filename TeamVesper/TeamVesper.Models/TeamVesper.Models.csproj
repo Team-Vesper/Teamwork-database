@@ -83,6 +83,7 @@
     <Compile Include="Company.cs" />
     <Compile Include="Contracts\IEntity.cs" />
     <Compile Include="Developer.cs" />
+    <Compile Include="Education.cs" />
     <Compile Include="MongoDeveloper.cs" />
     <Compile Include="Priority.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
