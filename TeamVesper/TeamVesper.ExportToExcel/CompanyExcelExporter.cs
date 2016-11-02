@@ -10,7 +10,7 @@ namespace TeamVesper.ExportToExcel
 {
     public class CompanyExcelExporter
     {
-        static void ExportCollection(IList<CompanyOverview> companyCollection, string sheetName, string outputFolder, string outputFileName)
+        public static void ExportCollection(IList<CompanyOverview> companyCollection, string sheetName, string outputFolder, string outputFileName)
         {
             var workbook = new XLWorkbook();
             var worksheet = workbook.Worksheets.Add(sheetName);
