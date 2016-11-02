@@ -66,12 +66,17 @@
     <Compile Include="MongoDeveloperCollectionsExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLiteToStandardModelsMapper.cs" />
+    <Compile Include="StandartModelsToDeveloperBugsInfo.cs" />
     <Compile Include="StarndartModelsToMongoModelMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeamVesper.Models\TeamVesper.Models.csproj">
       <Project>{8746D04C-43B3-4DE3-9668-4169AB64FC15}</Project>
       <Name>TeamVesper.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.MySqlData\TeamVesper.MySqlData.csproj">
+      <Project>{134075AB-39F5-477F-BDDA-666E565846DD}</Project>
+      <Name>TeamVesper.MySqlData</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
       <Project>{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}</Project>
