@@ -82,6 +82,7 @@
     <Compile Include="Bug.cs" />
     <Compile Include="BugReport.cs" />
     <Compile Include="Company.cs" />
+    <Compile Include="CompanyOverview.cs" />
     <Compile Include="Contracts\IEntity.cs" />
     <Compile Include="Developer.cs" />
     <Compile Include="DeveloperBugsInfo.cs" />

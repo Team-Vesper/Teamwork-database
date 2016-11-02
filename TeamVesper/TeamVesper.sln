@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.MySqlData", "Tea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.ExportToXML", "TeamVesper.ExportToXML\TeamVesper.ExportToXML.csproj", "{45B5E896-9C8F-4BB3-9A94-5036D53DC052}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.ExportToExcel", "TeamVesper.ExportToExcel\TeamVesper.ExportToExcel.csproj", "{F09370ED-337D-401E-B230-82BA5CE1FC98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{45B5E896-9C8F-4BB3-9A94-5036D53DC052}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45B5E896-9C8F-4BB3-9A94-5036D53DC052}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45B5E896-9C8F-4BB3-9A94-5036D53DC052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F09370ED-337D-401E-B230-82BA5CE1FC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F09370ED-337D-401E-B230-82BA5CE1FC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F09370ED-337D-401E-B230-82BA5CE1FC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F09370ED-337D-401E-B230-82BA5CE1FC98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
