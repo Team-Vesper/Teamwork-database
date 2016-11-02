@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TeamVesper.Models;
 using Telerik.OpenAccess.Metadata;
 using Telerik.OpenAccess.Metadata.Fluent;
 
@@ -11,20 +12,19 @@ namespace TeamVesper.MySqlData
         {
             List<MappingConfiguration> configurations = new List<MappingConfiguration>();
 
-            //var salesMapping = new MappingConfiguration<SalesReport>();
-            //salesMapping.HasProperty(c => c.Id).IsIdentity(KeyGenerator.Autoinc);
+            var DevBugMap = new MappingConfiguration<DeveloperBugsInfo>();
 
-            //salesMapping.MapType(report => new
-            //{
-            //    // Id = report.Id,
-            //    Town = report.Town,
-            //    Date = report.Date,                             <= TODO watch this!
-            //    LaptopId = report.LaptopId,
-            //    Quantity = report.Quantity,
-            //    Sum = report.Sum
-            //}).ToTable("sales");
+            DevBugMap.HasProperty(x => x.Id).IsIdentity(KeyGenerator.Autoinc);
 
-            // configurations.Add(salesMapping);
+            DevBugMap.MapType(x => new
+            {
+                username = x.UserName,
+                firstName = x.FirstName,
+                lastName = x.LastName,
+                bugsFixed = x.BugsFixed
+            }).ToTable("DeveloperBugsInfo");
+
+            configurations.Add(DevBugMap);
 
             return configurations;
         }

@@ -8,9 +8,10 @@ namespace TeamVesper.MySqlData
         private static readonly BackendConfiguration BackendConfig = GetBackEndConfig();
         private static readonly MetadataSource MetaDataConfig = new MySqlModelConfiguration();
 
-        private static string connectionName = "TheStoreMySqlConnection";
+        // private static string connectionName = "TeamVesperMySql";
+        private const string defaultConnectionString = "server=localhost;database=TeamVesperMySql;uid=root;pwd=pass";
 
-        public MySqlContext(string connectionString)
+        public MySqlContext(string connectionString = defaultConnectionString)
             : base(connectionString, BackendConfig, MetaDataConfig)
         {
         }
