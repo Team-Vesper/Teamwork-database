@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace TeamVesper.XmlDataReader.Models
+namespace TeamVesper.Models
 {
     [XmlRoot(ElementName = "developperEducation")]
     public class DTOEducation

@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Contracts\IXmlToDTOEducationConverter.cs" />
     <Compile Include="DTOEducationToDbEducationConverter.cs" />
-    <Compile Include="Models\DTOEducation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlToDTOEducationConverter.cs" />
   </ItemGroup>
