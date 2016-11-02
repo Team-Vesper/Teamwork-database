@@ -13,7 +13,6 @@ namespace TeamVesper.Models
         public MongoDeveloper(string username,
                                 string fullName,
                                 int age,
-                                int salary,
                                 string speciality,
                                 string team,
                                 bool isTeamLeader)
@@ -21,7 +20,6 @@ namespace TeamVesper.Models
             this.Username = username;
             this.FullName = fullName;
             this.Age = age;
-            this.Salary = salary;
             this.Speciality = speciality;
             this.Team = team;
             this.isTeamLeader = isTeamLeader;
@@ -42,11 +40,7 @@ namespace TeamVesper.Models
         [BsonElement("age")]
         [JsonProperty("age")]
         public int Age { get; set; }
-
-        [BsonElement("salary")]
-        [JsonProperty("salary")]
-        public int Salary { get; set; }
-
+        
         [BsonElement("speciality")]
         [JsonProperty("speciality")]
         public string Speciality { get; set; }

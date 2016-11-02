@@ -11,7 +11,6 @@ namespace TeamVesper.Models
         private string firstName;
         private string lastName;
         private int age;
-        private int salary;
         private ICollection<Bug> workingOn;
 
         public Developer()
@@ -22,14 +21,12 @@ namespace TeamVesper.Models
         public Developer(string userName,
                             string firstName,
                             string lastName,
-                            int age,
-                            int salary)
+                            int age)
         {
             this.UserName = userName;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Age = age;
-            this.Salary = salary;
         }
 
         [Key]
@@ -140,24 +137,6 @@ namespace TeamVesper.Models
                 }
 
                 this.age = value;
-            }
-        }
-
-        [Range(0, int.MaxValue)]
-        public int Salary
-        {
-            get
-            {
-                return this.salary;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException("Salary cannot be negative number!");
-                }
-
-                this.salary = value;
             }
         }
 

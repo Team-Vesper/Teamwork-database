@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoingRandomTests", "DoingRa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.XmlDataReader", "TeamVesper.XmlDataReader\TeamVesper.XmlDataReader.csproj", "{676EBCC7-9320-42F3-9F46-00FC4074E876}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamVesper.MySqlData", "TeamVesper.MySqlData\TeamVesper.MySqlData.csproj", "{134075AB-39F5-477F-BDDA-666E565846DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{676EBCC7-9320-42F3-9F46-00FC4074E876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{676EBCC7-9320-42F3-9F46-00FC4074E876}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{676EBCC7-9320-42F3-9F46-00FC4074E876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{134075AB-39F5-477F-BDDA-666E565846DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{134075AB-39F5-477F-BDDA-666E565846DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{134075AB-39F5-477F-BDDA-666E565846DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{134075AB-39F5-477F-BDDA-666E565846DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

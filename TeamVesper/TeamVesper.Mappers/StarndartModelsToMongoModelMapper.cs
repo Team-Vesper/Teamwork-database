@@ -43,7 +43,6 @@ namespace TeamVesper.Mappers
                                         dev.UserName,
                                         dev.FirstName + " " + dev.LastName,
                                         dev.Age,
-                                        dev.Salary,
                                         dev.Speciality.Name,
                                         dev.Team.Name,
                                         dev.isTeamLeader);

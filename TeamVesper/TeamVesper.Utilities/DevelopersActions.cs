@@ -29,7 +29,6 @@
                     devToAdd.FirstName = dev.FirstName;
                     devToAdd.LastName = dev.LastName;
                     devToAdd.Age = dev.Age;
-                    devToAdd.Salary = dev.Salary;
                     devToAdd.isTeamLeader = dev.isTeamLeader;
                     devToAdd.SpecialityId = rng.Next(1, 10);
                     devToAdd.TeamId = rng.Next(1, 6);

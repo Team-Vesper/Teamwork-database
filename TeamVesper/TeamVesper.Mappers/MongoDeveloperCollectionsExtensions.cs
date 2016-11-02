@@ -49,8 +49,7 @@ namespace TeamVesper.Mappers
                     // just in case there more then 2 names -> all after 1st goin in LastName by design
                     LastName = string.Join(" ", splitedNames.Skip(1).Take(splitedNames.Length - 1)),
                     Age = dev.Age,
-                    isTeamLeader = dev.isTeamLeader,
-                    Salary = dev.Salary
+                    isTeamLeader = dev.isTeamLeader
                 };
 
                 result.Add(newDev);
