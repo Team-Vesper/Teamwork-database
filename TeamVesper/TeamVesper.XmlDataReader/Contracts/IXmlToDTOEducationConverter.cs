@@ -4,7 +4,7 @@ using TeamVesper.XmlDataReader.Models;
 
 namespace TeamVesper.XmlDataReader.Contracts
 {
-    interface IXmlToDTOEducationConverter
+    public interface IXmlToDTOEducationConverter
     {
         IEnumerable<DTOEducation> GetAllDeveloppersEducations();
     }
