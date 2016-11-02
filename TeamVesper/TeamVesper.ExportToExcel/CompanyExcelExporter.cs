@@ -43,7 +43,6 @@ namespace TeamVesper.ExportToExcel
             {
                 for (int i = 0; i < propertyNames.Length; i++)
                 {
-                    Console.WriteLine(propertyNames[i].GetValue(company));
                     worksheet.Cell(Convert.ToString((char)cellA) + columnDataExcelRowStartingIndex).Value = propertyNames[i].GetValue(company);
                     cellA++;
                 }
@@ -52,9 +51,9 @@ namespace TeamVesper.ExportToExcel
             }
             var timeNow = DateTime.Now.ToString("yyyyMMdd_hhmmss", CultureInfo.InvariantCulture);
 
-            var finalFilePathNameDate = outputFolder + outputFileName + "_" + timeNow + ".xlsx";
+            var FilePathNameDate = outputFolder + outputFileName + "_" + timeNow + ".xlsx";
 
-            workbook.SaveAs(finalFilePathNameDate);
+            workbook.SaveAs(FilePathNameDate);
         }
     }
 }
