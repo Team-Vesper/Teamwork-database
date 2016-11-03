@@ -23,7 +23,8 @@ namespace TeamVesper.ExportToPdf
         private const string BugSpecialtyColumnHeader = "Bug Specialty";
         private const string BugSolvedOnColumnHeader = "Bug SolvedOn";
         private const string BugAttachedToDeveloperColumnHeader = "Bug Attached To";
-        private const int PdfTableSize = 6;
+        private const string BugAttachedToTeamColumnHeader = "Developer team";
+        private const int PdfTableSize = 7;
 
         private string folderPath;
 
@@ -124,7 +125,8 @@ namespace TeamVesper.ExportToPdf
                                             BugPriorityColumnHeader = x.Priority.Name,
                                             BugSpecialtyColumnHeader = x.Speciality.Name,
                                             BugSolvedOnColumnHeader = x.solvedOn.ToString(),
-                                            BugAttachedToDeveloperColumnHeader = x.AttachedTo.FirstName + " " + x.AttachedTo.LastName
+                                            BugAttachedToDeveloperColumnHeader = x.AttachedTo.FirstName + " " + x.AttachedTo.LastName,
+                                            BugAttachedToTeamColumnHeader = x.AttachedTo.Team.Name
                                         })
                                         .ToList();
             foreach (var bug in report)
@@ -135,6 +137,8 @@ namespace TeamVesper.ExportToPdf
                 table.AddCell(bug.BugSpecialtyColumnHeader);
                 table.AddCell(bug.BugSolvedOnColumnHeader);
                 table.AddCell(bug.BugAttachedToDeveloperColumnHeader);
+                table.AddCell(bug.BugAttachedToTeamColumnHeader);
+
             }
         }
 
@@ -146,6 +150,8 @@ namespace TeamVesper.ExportToPdf
             table.AddCell(SetColorToCell(BugSpecialtyColumnHeader));
             table.AddCell(SetColorToCell(BugSolvedOnColumnHeader));
             table.AddCell(SetColorToCell(BugAttachedToDeveloperColumnHeader));
+            table.AddCell(SetColorToCell(BugAttachedToTeamColumnHeader));
+
         }
 
         private PdfPCell SetColorToCell(string cellTitle)
