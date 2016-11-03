@@ -21,7 +21,7 @@ namespace TeamVesper.ExportToPdf
         private const string BugDesriptionColumnHeader = "Bug Desription";
         private const string BugPriorityColumnHeader = "Bug Priority";
         private const string BugSpecialtyColumnHeader = "Bug Specialty";
-        private const string BugSolvedOnColumnHeader = "Bug SolvedOn";
+        private const string BugSolvedOnColumnHeader = "Bug Solved On";
         private const string BugAttachedToDeveloperColumnHeader = "Bug Attached To";
         private const string BugAttachedToTeamColumnHeader = "Developer team";
         private const int PdfTableSize = 7;
@@ -54,6 +54,7 @@ namespace TeamVesper.ExportToPdf
                 this.folderPath = value;
             }
         }
+
         public void ReportMany(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
@@ -65,8 +66,8 @@ namespace TeamVesper.ExportToPdf
         public void ReportSingle(TEntity entity)
         {
             throw new NotImplementedException();
-
         }
+
         public void GeneratePdfReport(SqlServerDbContext dbContext)
         {
             var document = new Document(PageSize.A4);
@@ -76,7 +77,7 @@ namespace TeamVesper.ExportToPdf
 
             document.Open();
 
-            PdfPTable table = this.FormatingReportTable();
+            var table = this.FormatingReportTable();
             this.AddReportTableTitle(table);
             this.AddReportTableColumns(table);
             this.AddDataInReportTable(table, dbContext);
@@ -104,7 +105,6 @@ namespace TeamVesper.ExportToPdf
 
         private PdfPTable FormatingReportTable()
         {
-
             PdfPTable table = new PdfPTable(PdfTableSize);
             table.WidthPercentage = 100;
             table.LockedWidth = false;
@@ -115,7 +115,6 @@ namespace TeamVesper.ExportToPdf
 
         private void AddDataInReportTable(PdfPTable table, SqlServerDbContext dbContext)
         {
-
             var report = dbContext.Bugs
                                         .Select(x =>
                                         new
@@ -129,6 +128,7 @@ namespace TeamVesper.ExportToPdf
                                             BugAttachedToTeamColumnHeader = x.AttachedTo.Team.Name
                                         })
                                         .ToList();
+
             foreach (var bug in report)
             {
                 table.AddCell(bug.BugIdColumnHeader);
@@ -138,7 +138,6 @@ namespace TeamVesper.ExportToPdf
                 table.AddCell(bug.BugSolvedOnColumnHeader);
                 table.AddCell(bug.BugAttachedToDeveloperColumnHeader);
                 table.AddCell(bug.BugAttachedToTeamColumnHeader);
-
             }
         }
 
@@ -151,7 +150,6 @@ namespace TeamVesper.ExportToPdf
             table.AddCell(SetColorToCell(BugSolvedOnColumnHeader));
             table.AddCell(SetColorToCell(BugAttachedToDeveloperColumnHeader));
             table.AddCell(SetColorToCell(BugAttachedToTeamColumnHeader));
-
         }
 
         private PdfPCell SetColorToCell(string cellTitle)
@@ -159,6 +157,7 @@ namespace TeamVesper.ExportToPdf
             var phrase = new Phrase(cellTitle);
             var cell = new PdfPCell(phrase);
             cell.BackgroundColor = BaseColor.GREEN;
+
             return cell;
         }
 
