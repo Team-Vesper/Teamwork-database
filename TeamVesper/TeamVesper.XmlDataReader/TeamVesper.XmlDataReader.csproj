@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IXmlToDTOEducationConverter.cs" />
     <Compile Include="DTOEducationToDbEducationConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlToDTOEducationConverter.cs" />
@@ -49,6 +48,10 @@
     <ProjectReference Include="..\TeamVesper.Models\TeamVesper.Models.csproj">
       <Project>{8746d04c-43b3-4de3-9668-4169ab64fc15}</Project>
       <Name>TeamVesper.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
+      <Project>{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}</Project>
+      <Name>TeamVesper.Repositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeamVesper.SqlServerData\TeamVesper.SqlServerData.csproj">
       <Project>{E2263523-AD04-43A5-9390-F8EA35B3DA2B}</Project>

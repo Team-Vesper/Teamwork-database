@@ -6,10 +6,14 @@ using System.Collections.Generic;
 using TeamVesper.XmlDataReader.Contracts;
 using TeamVesper.Models;
 using System;
+using TeamVesper.Repositories.Contracts;
+using System.Linq.Expressions;
+using System.Linq;
 
 namespace TeamVesper.XmlDataReader
 {
-    public class XmlToDTOEducationConverter : IXmlToDTOEducationConverter
+    public class XmlToDTOEducationConverter<TEntity> : IReadableRepository<TEntity>
+        where TEntity : DTOEducation
     {
         private string filePath;
 
@@ -39,17 +43,29 @@ namespace TeamVesper.XmlDataReader
             }
         }
 
-        public IEnumerable<DTOEducation> GetAllDeveloppersEducations()
+        public IEnumerable<TEntity> All()
+        {
+            return this.GetAllDeveloppersEducations();
+        }
+
+        public IEnumerable<TEntity> All(Expression<Func<TEntity, bool>> predicate)
+        {
+            var func = predicate.Compile();
+
+            return this.All().Where(func).ToList();
+        }
+
+        private IEnumerable<TEntity> GetAllDeveloppersEducations()
         {
             var xmlDocument = XDocument.Load(this.FilePath);
             var xmlFormatEducations = xmlDocument.Descendants("developperEducation");
-            var pocoEducations = new List<DTOEducation>();
+            var pocoEducations = new List<TEntity>();
 
             foreach (var education in xmlFormatEducations)
             {
                 var stringReader = new StringReader(education.ToString());
-                var xmlSerializer = new XmlSerializer(typeof(DTOEducation));
-                var current = (DTOEducation)xmlSerializer.Deserialize(stringReader);
+                var xmlSerializer = new XmlSerializer(typeof(TEntity));
+                var current = (TEntity)xmlSerializer.Deserialize(stringReader);
 
                 pocoEducations.Add(current);
             }

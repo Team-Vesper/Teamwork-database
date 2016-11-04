@@ -1,26 +1,22 @@
 ﻿using System.Collections.Generic;
-
-using TeamVesper.SqlServerData;
 using TeamVesper.Models;
-using TeamVesper.XmlDataReader.Contracts;
 
 namespace TeamVesper.XmlDataReader
 {
+    // TODO move this where is needed. Its mapper!
+
     public class DTOEducationToDbEducationConverter
     {
-        public DTOEducationToDbEducationConverter(IXmlToDTOEducationConverter dtoModels, SqlServerDbContext dbContext)
+        public DTOEducationToDbEducationConverter(IEnumerable<DTOEducation> collection)
         {
-            this.DtoModels = dtoModels;
-            this.DbContext = dbContext;
+            this.Collection = collection;
         }
 
-        internal IXmlToDTOEducationConverter DtoModels { get; set; }
-
-        internal SqlServerDbContext DbContext { get; set; }
+        internal IEnumerable<DTOEducation> Collection { get; set; }
 
         public IEnumerable<Education> GetAllEducations()
         {
-            var dtoEducations = this.DtoModels.GetAllDeveloppersEducations();
+            var dtoEducations = this.Collection;
             var resultEducations = new HashSet<Education>();
 
             foreach (var dtoEducation in dtoEducations)
