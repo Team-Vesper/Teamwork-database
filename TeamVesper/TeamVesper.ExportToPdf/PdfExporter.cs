@@ -11,7 +11,7 @@ using TeamVesper.Models;
 namespace TeamVesper.ExportToPdf
 {
     public class PdfExporter<TEntity> : IReporter<TEntity>
-        where TEntity : Bug
+        where TEntity : BugInfo
     {
         private const string ReportFileName = "Bug";
         private const string FileExtension = "pdf";
@@ -32,6 +32,7 @@ namespace TeamVesper.ExportToPdf
         {
             this.FolderPath = folderPath;
         }
+
         private string FolderPath
         {
             set
@@ -57,18 +58,19 @@ namespace TeamVesper.ExportToPdf
 
         public void ReportMany(IEnumerable<TEntity> entities)
         {
-            foreach (var entity in entities)
-            {
-                this.ReportSingle(entity);
-            }
+            this.GeneratePdfReport(entities);
         }
 
         public void ReportSingle(TEntity entity)
         {
-            throw new NotImplementedException();
+            var list = new List<TEntity>();
+
+            list.Add(entity);
+
+            this.ReportMany(list);
         }
 
-        public void GeneratePdfReport(SqlServerDbContext dbContext)
+        private void GeneratePdfReport(IEnumerable<TEntity> report)
         {
             var document = new Document(PageSize.A4);
             var fileName = AddDateTimeSuffixtoFileName(ReportFileName) + FileExtension;
@@ -80,7 +82,7 @@ namespace TeamVesper.ExportToPdf
             var table = this.FormatingReportTable();
             this.AddReportTableTitle(table);
             this.AddReportTableColumns(table);
-            this.AddDataInReportTable(table, dbContext);
+            this.AddDataInReportTable(table, report);
 
             document.Add(table);
             document.Close();
@@ -113,31 +115,17 @@ namespace TeamVesper.ExportToPdf
             return table;
         }
 
-        private void AddDataInReportTable(PdfPTable table, SqlServerDbContext dbContext)
+        private void AddDataInReportTable(PdfPTable table, IEnumerable<TEntity> report)
         {
-            var report = dbContext.Bugs
-                                        .Select(x =>
-                                        new
-                                        {
-                                            BugIdColumnHeader = x.Id.ToString(),
-                                            BugDesriptionColumnHeader = x.Description,
-                                            BugPriorityColumnHeader = x.Priority.Name,
-                                            BugSpecialtyColumnHeader = x.Speciality.Name,
-                                            BugSolvedOnColumnHeader = x.solvedOn.ToString(),
-                                            BugAttachedToDeveloperColumnHeader = x.AttachedTo.FirstName + " " + x.AttachedTo.LastName,
-                                            BugAttachedToTeamColumnHeader = x.AttachedTo.Team.Name
-                                        })
-                                        .ToList();
-
             foreach (var bug in report)
             {
-                table.AddCell(bug.BugIdColumnHeader);
-                table.AddCell(bug.BugDesriptionColumnHeader);
-                table.AddCell(bug.BugPriorityColumnHeader);
-                table.AddCell(bug.BugSpecialtyColumnHeader);
-                table.AddCell(bug.BugSolvedOnColumnHeader);
-                table.AddCell(bug.BugAttachedToDeveloperColumnHeader);
-                table.AddCell(bug.BugAttachedToTeamColumnHeader);
+                table.AddCell(bug.Id.ToString());
+                table.AddCell(bug.Description);
+                table.AddCell(bug.Priority);
+                table.AddCell(bug.Speciality);
+                table.AddCell(bug.SolvedOn);
+                table.AddCell(bug.AttachTo);
+                table.AddCell(bug.Team);
             }
         }
 

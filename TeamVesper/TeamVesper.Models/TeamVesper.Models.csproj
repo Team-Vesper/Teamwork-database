@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bug.cs" />
+    <Compile Include="BugInfo.cs" />
     <Compile Include="BugReport.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="CompanyOverview.cs" />
