@@ -9,6 +9,11 @@ namespace TeamVesper.Models
         private string name;
         private decimal averageSalary;
 
+        public Company()
+        {
+
+        }
+
         public Company(string name, decimal averageSalary)
         {
             this.Name = name;
