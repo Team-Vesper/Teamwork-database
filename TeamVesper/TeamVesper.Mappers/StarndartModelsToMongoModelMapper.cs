@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using TeamVesper.Models;
-using TeamVesper.SqlServerData.Contracts;
+using TeamVesper.Repositories.Contracts;
 
 namespace TeamVesper.Mappers
 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using TeamVesper.Repositories.Contracts;
@@ -10,16 +11,16 @@ namespace TeamVesper.Repositories
     public class SqlServerRepository<TEntity> : IRepository<TEntity>
         where TEntity : class
     {
-        private IDbSet<TEntity> dbSet;
-        private ISqlServerDbContext dbContext;
+        private IDbSet<TEntity> set;
+        private ICurrentSqlServerDbContext dbContext;
 
-        public SqlServerRepository(ISqlServerDbContext context)
+        public SqlServerRepository(ICurrentSqlServerDbContext context)
         {
             this.DbContext = context;
-            this.DbSet = context.Set<TEntity>();
+            this.Set = context.Set<TEntity>();
         }
 
-        protected IDbSet<TEntity> DbSet
+        protected IDbSet<TEntity> Set
         {
             set
             {
@@ -28,11 +29,11 @@ namespace TeamVesper.Repositories
                     throw new ArgumentNullException("SqlServer dbSet");
                 }
 
-                this.dbSet = value;
+                this.set = value;
             }
         }
 
-        protected ISqlServerDbContext DbContext
+        protected ICurrentSqlServerDbContext DbContext
         {
             set
             {
@@ -47,64 +48,70 @@ namespace TeamVesper.Repositories
 
         public void Add(TEntity entity)
         {
-            this.dbSet.Add(entity);
-            this.dbContext.SaveChanges();
+            var entry = this.AttachIfDetached(entity);
+            entry.State = EntityState.Added;
         }
 
         public void AddMany(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                this.dbSet.Add(entity);
+                var entry = this.AttachIfDetached(entity);
+                entry.State = EntityState.Added;
             }
-
-            this.dbContext.SaveChanges();
         }
 
         public IEnumerable<TEntity> All()
         {
-            // TODO get decision to list or not 
-            return this.dbSet;
+            return this.set.ToList();
         }
 
         public IEnumerable<TEntity> All(Expression<Func<TEntity, bool>> predicate)
         {
-            // TODO get decision to list or not 
-            return this.dbSet.Where(predicate);
+            var func = predicate.Compile();
+            return this.All().Where(func).ToList();
         }
 
         public void Remove(TEntity entity)
         {
-            this.dbSet.Remove(entity);
-            this.dbContext.SaveChanges();
+            var entry = this.AttachIfDetached(entity);
+            entry.State = EntityState.Deleted;
         }
 
         public void RemoveMany(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                this.dbSet.Remove(entity);
+                var entry = this.AttachIfDetached(entity);
+                entry.State = EntityState.Added;
             }
-
-            this.dbContext.SaveChanges();
         }
 
-        public void Update(TEntity entity)
-        {
-            var dbEntry = this.dbContext.Entry(entity);
-            dbEntry.State = EntityState.Modified;
-            this.dbContext.SaveChanges();
-        }
+        //public void Update(TEntity entity)
+        //{
+        //    var entry = this.AttachIfDetached(entity);
+        //    entry.State = EntityState.Modified;
 
-        public void UpdateMany(IEnumerable<TEntity> entities)
+        //}
+
+        //public void UpdateMany(IEnumerable<TEntity> entities)
+        //{
+        //    foreach (var entity in entities)
+        //    {
+        //        var entry = this.AttachIfDetached(entity);
+        //        entry.State = EntityState.Modified;
+        //    }
+        //}
+
+        private DbEntityEntry<TEntity> AttachIfDetached(TEntity entity)
         {
-            foreach (var entity in entities)
+            var entry = this.dbContext.Entry(entity);
+            if (entry.State == EntityState.Detached)
             {
-                var dbEntry = this.dbContext.Entry(entity);
-                dbEntry.State = EntityState.Modified;
+                this.set.Attach(entity);
             }
 
-            this.dbContext.SaveChanges();
+            return entry;
         }
     }
 }

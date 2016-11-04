@@ -78,10 +78,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICurrentSqlServerDbContext.cs" />
     <Compile Include="Contracts\IReadableRepository.cs" />
     <Compile Include="Contracts\IReporter.cs" />
     <Compile Include="Contracts\IRepository.cs" />
-    <Compile Include="Contracts\ISqlServerDbContext.cs" />
+    <Compile Include="Contracts\IDbContext.cs" />
+    <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="MongoRepository.cs" />
     <Compile Include="MySqlRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="Reporter.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="SqlServerRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -99,10 +102,6 @@
     <ProjectReference Include="..\TeamVesper.Models\TeamVesper.Models.csproj">
       <Project>{8746D04C-43B3-4DE3-9668-4169AB64FC15}</Project>
       <Name>TeamVesper.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TeamVesper.MySqlData\TeamVesper.MySqlData.csproj">
-      <Project>{134075AB-39F5-477F-BDDA-666E565846DD}</Project>
-      <Name>TeamVesper.MySqlData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

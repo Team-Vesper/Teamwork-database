@@ -1,19 +1,16 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Infrastructure.Annotations;
 using TeamVesper.Models;
 using TeamVesper.Repositories.Contracts;
-using TeamVesper.SqlServerData.Contracts;
 
 namespace TeamVesper.SqlServerData
 {
-    public class SqlServerDbContext : DbContext, ICurrentSqlServerDbContext, ISqlServerDbContext
+    public class SqlServerDbContext : DbContext, ICurrentSqlServerDbContext, IDbContext
     {
 
         public SqlServerDbContext()
-            :base ("TeamVesperSqlServer")
+            : base("TeamVesperSqlServer")
         {
 
         }

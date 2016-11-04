@@ -3,7 +3,6 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
-using TeamVesper.XmlDataReader.Contracts;
 using TeamVesper.Models;
 using System;
 using TeamVesper.Repositories.Contracts;
@@ -40,6 +39,8 @@ namespace TeamVesper.XmlDataReader
                 {
                     throw new ArgumentException("XML file path cannot be empty string!");
                 }
+
+                this.filePath = value;
             }
         }
 

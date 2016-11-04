@@ -1,9 +1,11 @@
-﻿using Telerik.OpenAccess;
+﻿using System;
+using TeamVesper.Repositories.Contracts;
+using Telerik.OpenAccess;
 using Telerik.OpenAccess.Metadata;
 
 namespace TeamVesper.MySqlData
 {
-    public class MySqlContext : OpenAccessContext
+    public class MySqlContext : OpenAccessContext, IDbContext
     {
         private static readonly BackendConfiguration BackendConfig = GetBackEndConfig();
         private static readonly MetadataSource MetaDataConfig = new MySqlModelConfiguration();
@@ -24,6 +26,12 @@ namespace TeamVesper.MySqlData
             config.ProviderName = "MySql.Data.MySqlClient";
 
             return config;
+        }
+
+        int IDbContext.SaveChanges()
+        {
+            this.SaveChanges();
+            return 0;
         }
     }
 }

@@ -8,9 +8,9 @@ namespace TeamVesper.Repositories.Contracts
 
         void AddMany(IEnumerable<TEntity> entities);
 
-        void Update(TEntity entity);
+        //void Update(TEntity entity);
 
-        void UpdateMany(IEnumerable<TEntity> entities);
+        //void UpdateMany(IEnumerable<TEntity> entities);
 
         void Remove(TEntity entity);
 

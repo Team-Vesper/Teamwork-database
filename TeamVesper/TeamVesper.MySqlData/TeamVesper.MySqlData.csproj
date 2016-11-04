@@ -70,6 +70,10 @@
       <Project>{8746D04C-43B3-4DE3-9668-4169AB64FC15}</Project>
       <Name>TeamVesper.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
+      <Project>{ef03e9b3-f3a1-4aad-b2ad-2d3089f9e8b0}</Project>
+      <Name>TeamVesper.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="OpenAccessNuget.targets" />
