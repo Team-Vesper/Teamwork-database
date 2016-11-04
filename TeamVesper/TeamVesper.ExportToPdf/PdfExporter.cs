@@ -90,7 +90,7 @@ namespace TeamVesper.ExportToPdf
 
         private static string AddDateTimeSuffixtoFileName(string fileName)
         {
-            DateTime currentDate = DateTime.Now;
+            var currentDate = DateTime.Now;
             string fileNameSuffix = string.Format(
                FileExtensionFormat,
                 currentDate.Day,
