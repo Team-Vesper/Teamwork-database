@@ -5,11 +5,12 @@ using System.Diagnostics;
 using System.Collections.Generic;
 
 using TeamVesper.Models;
-using TeamVesper.ExportToXML.Contracts;
+using TeamVesper.Repositories.Contracts;
 
 namespace TeamVesper.ExportToXML
 {
-    public class BugReportToXml : IBugReportToXml
+    public class BugReportToXml<TEntity> : IReporter<TEntity>
+        where TEntity : BugReport
     {
         private const string FileName = "BugsReports.xml";
         private const string Version = "1.0";
@@ -51,7 +52,20 @@ namespace TeamVesper.ExportToXML
             }
         }
 
-        public void XmlCreateReports(IEnumerable<BugReport> bugsReport)
+        public void ReportSingle(TEntity entity)
+        {
+            var list = new List<TEntity>();
+
+            list.Add(entity);
+            this.ReportMany(list);
+        }
+
+        public void ReportMany(IEnumerable<TEntity> entities)
+        {
+            this.XmlCreateReports(entities);
+        }
+
+        private void XmlCreateReports(IEnumerable<TEntity> bugsReport)
         {
             XmlDocument xmlReport = new XmlDocument();
             XmlDeclaration xmlDeclaration = xmlReport.CreateXmlDeclaration(Version, Encoding, null);
