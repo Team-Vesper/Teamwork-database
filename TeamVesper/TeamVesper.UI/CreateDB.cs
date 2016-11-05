@@ -19,17 +19,17 @@ namespace TeamVesper.UI
 
         private void CreateMongoDB_Click(object sender, EventArgs e)
         {
-
+            CreateMongoDbButton.Enabled = false;
         }
 
         private void CreateSqlServer_Click(object sender, EventArgs e)
         {
-
+            CreateSQLServerButton.Enabled = false;
         }
 
         private void CreateSQLite_Click(object sender, EventArgs e)
         {
-
+            CreateSQLiteButton.Enabled = false;
         }
 
         private void Back_Click(object sender, EventArgs e)
