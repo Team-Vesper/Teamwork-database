@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IDbInitializer.cs" />
+    <Compile Include="Contracts\IDbInitializerFactory.cs" />
     <Compile Include="MongoDbInitializer.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
