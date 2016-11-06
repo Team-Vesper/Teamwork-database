@@ -1,17 +1,18 @@
-﻿namespace TeamVesper.Importers
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.OleDb;
-    using System.IO;
-    using System.IO.Compression;
-    using System.Linq.Expressions;
-    using Models;
-    using Repositories.Contracts;
-    using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
+using System.IO;
+using System.IO.Compression;
+using System.Linq.Expressions;
+using TeamVesper.Models;
+using TeamVesper.Repositories.Contracts;
+using System.Linq;
 
-    public class ExcelImporter<Bug> : IReadableRepository<Bug>
+
+namespace TeamVesper.Importers
+{  
+    public class ExcelImporter : IReadableRepository<Bug>
     {
         private const string extractPath = "../../../Bugs";
         private readonly string path;

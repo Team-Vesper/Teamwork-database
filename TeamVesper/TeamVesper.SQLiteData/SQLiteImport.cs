@@ -5,13 +5,13 @@ using System.Data.SQLite;
 
 using TeamVesper.Models;
 
-namespace TeamVesper.Mappers
+namespace TeamVesper.SQLiteData
 {
-    public class SQLiteToStandardModelsMapper
+    public class SQLiteImport
     {
         private string sqLiteDbConnectionString;
 
-        public SQLiteToStandardModelsMapper(string connectionString)
+        public SQLiteImport(string connectionString)
         {
             this.SQLiteDbConnectionString = connectionString;
         }

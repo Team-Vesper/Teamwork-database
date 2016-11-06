@@ -4,6 +4,12 @@ using Ninject.Extensions.Factory;
 using TeamVesper.DbCreate.Contracts;
 using TeamVesper.DbCreate;
 using TeamVesper.SqlServerData;
+using TeamVesper.MongoDbData;
+using TeamVesper.Models;
+using TeamVesper.Repositories.Contracts;
+using Ninject;
+using Ninject.Parameters;
+using TeamVesper.Repositories;
 
 namespace TeamVesper.UI.Modules
 {
@@ -48,7 +54,22 @@ namespace TeamVesper.UI.Modules
 
             Bind<IRepositoryFactory>().ToFactory().InSingletonScope();
 
+            Bind<IReadableRepository<MongoDeveloper>>().ToMethod(ctx =>
+            {
+                var connector = ctx.Kernel.Get<MongoConnector<MongoDeveloper>>();
+                var param = new ConstructorArgument("dbSet", connector.Dbset);
+
+                var repo = ctx.Kernel.Get<MongoRepository<MongoDeveloper>>(param);
+                
+                return repo;
+
+            }).InSingletonScope().Named(MongoDeveloperReadableRepository);
+
+
+            Bind<IReporterFactory>().ToFactory().InSingletonScope();
+
             Bind<SqlServerDbContext>().To<SqlServerDbContext>().InSingletonScope();
+            Bind<MongoConnector<MongoDeveloper>>().To<MongoConnector<MongoDeveloper>>().InSingletonScope();
         }
     }
 }

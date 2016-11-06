@@ -34,9 +34,9 @@ namespace TeamVesper.DbCreate
             TeamsDB.Add();
             DevelopersActions.AddFromTest();
 
-            var bugList = ExcelImporter.ImportBugs(zipPath);            
-            BugsDB.Add(bugList);
-            BugActions.Assign();
+            //var bugList = ExcelImporter.ImportBugs(zipPath);            
+            // BugsDB.Add(bugList);
+            // BugActions.Assign();
         }
 
         private static void SqlServerDbCreate()
