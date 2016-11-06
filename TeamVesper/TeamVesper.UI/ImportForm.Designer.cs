@@ -1,6 +1,6 @@
 ﻿namespace TeamVesper.UI
 {
-    partial class Import
+    partial class ImportForm
     {
         /// <summary>
         /// Required designer variable.

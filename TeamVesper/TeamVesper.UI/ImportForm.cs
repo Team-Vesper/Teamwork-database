@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TeamVesper.UI
 {
-    public partial class Import : Form
+    public partial class ImportForm : Form
     {
-        public Import()
+        public ImportForm()
         {
             InitializeComponent();
         }

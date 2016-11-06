@@ -10,14 +10,29 @@ using System.Windows.Forms;
 
 namespace TeamVesper.UI
 {
-    public partial class Transfer : Form
+    public partial class ExportForm : Form
     {
-        public Transfer()
+        public ExportForm()
         {
             InitializeComponent();
         }
+        
+        private void ReportJSON_Click(object sender, EventArgs e)
+        {
 
-        private void SqlServerToMySQL_Click(object sender, EventArgs e)
+        }
+
+        private void ReportPDF_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReportXML_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReportExcel_Click(object sender, EventArgs e)
         {
 
         }

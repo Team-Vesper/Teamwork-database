@@ -1,6 +1,6 @@
 ﻿namespace TeamVesper.UI
 {
-    partial class CreateDB
+    partial class CreateDBForm
     {
         /// <summary>
         /// Required designer variable.

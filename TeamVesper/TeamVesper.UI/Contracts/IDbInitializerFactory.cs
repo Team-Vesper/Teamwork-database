@@ -1,5 +1,6 @@
-﻿
-namespace TeamVesper.DbCreate.Contracts
+﻿using TeamVesper.DbCreate.Contracts;
+
+namespace TeamVesper.UI.Contracts
 {
     public interface IDbInitializerFactory
     {

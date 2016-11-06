@@ -1,6 +1,6 @@
 ﻿namespace TeamVesper.UI
 {
-    partial class Export
+    partial class ExportForm
     {
         /// <summary>
         /// Required designer variable.

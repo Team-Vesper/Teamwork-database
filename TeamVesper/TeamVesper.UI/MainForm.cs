@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TeamVesper.UI.Contracts;
 
 namespace TeamVesper.UI
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private IFormFactory factory;
+
+        public MainForm(IFormFactory factory)
         {
+            this.factory = factory;
             InitializeComponent();
         }
 
@@ -24,7 +21,7 @@ namespace TeamVesper.UI
 
         private void CreateDB_Click(object sender, EventArgs e)
         {
-            var form = new CreateDB();
+            var form = factory.GetCreateDbForm();
             form.Tag = this;
 
             form.Show();
@@ -33,7 +30,7 @@ namespace TeamVesper.UI
 
         private void Import_Click(object sender, EventArgs e)
         {
-            var form = new Import();
+            var form = factory.GetImportForm();
             form.Tag = this;
 
             form.Show();
@@ -42,7 +39,7 @@ namespace TeamVesper.UI
 
         private void Transfer_Click(object sender, EventArgs e)
         {
-            var form = new Transfer();
+            var form = factory.GetTransferForm();
             form.Tag = this;
 
             form.Show();
@@ -51,7 +48,7 @@ namespace TeamVesper.UI
 
         private void Export_Click(object sender, EventArgs e)
         {
-            var form = new Export();
+            var form = factory.GetExportForm();
             form.Tag = this;
 
             form.Show();

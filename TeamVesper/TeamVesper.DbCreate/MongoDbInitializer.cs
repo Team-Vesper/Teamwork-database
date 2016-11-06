@@ -1,16 +1,17 @@
 ﻿using MongoDB.Driver;
 using System.Collections.Generic;
+using TeamVesper.DbCreate.Contracts;
 using TeamVesper.Models;
 
 namespace TeamVesper.DbCreate
 {
-    public class MongoDbInitializer
+    public class MongoDbInitializer : IDbInitializer
     {
         private const string MongoConnectionString = @"mongodb://localhost";
         private const string MongoDatabaseName = "TeamVesper";
         private const string MongoCollectionName = "Devs";
 
-        public static void CreateDB()
+        public void CreateDB()
         {
             var client = new MongoClient(MongoConnectionString);
 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TeamVesper.UI
 {
-    public partial class CreateDB : Form
+    public partial class CreateDBForm : Form
     {
-        public CreateDB()
+        public CreateDBForm()
         {
             InitializeComponent();
         }
