@@ -77,6 +77,8 @@
   <ItemGroup>
     <Compile Include="Contracts\IDbInitializerFactory.cs" />
     <Compile Include="Contracts\IFormFactory.cs" />
+    <Compile Include="Contracts\IReporterFactory.cs" />
+    <Compile Include="Contracts\IRepositoryFactory.cs" />
     <Compile Include="CreateDBForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +154,10 @@
     <ProjectReference Include="..\TeamVesper.DbCreate\TeamVesper.DbCreate.csproj">
       <Project>{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}</Project>
       <Name>TeamVesper.DbCreate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
+      <Project>{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}</Project>
+      <Name>TeamVesper.Repositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeamVesper.SqlServerData\TeamVesper.SqlServerData.csproj">
       <Project>{E2263523-AD04-43A5-9390-F8EA35B3DA2B}</Project>

@@ -28,18 +28,18 @@ namespace TeamVesper.UI
             this.Hide();
         }
 
-        private void Import_Click(object sender, EventArgs e)
+        private void Transfer_Click(object sender, EventArgs e)
         {
-            var form = factory.GetImportForm();
+            var form = factory.GetTransferForm();
             form.Tag = this;
 
             form.Show();
             this.Hide();
         }
 
-        private void Transfer_Click(object sender, EventArgs e)
+        private void Import_Click(object sender, EventArgs e)
         {
-            var form = factory.GetTransferForm();
+            var form = factory.GetImportForm();
             form.Tag = this;
 
             form.Show();

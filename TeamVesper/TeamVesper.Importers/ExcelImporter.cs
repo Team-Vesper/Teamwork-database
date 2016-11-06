@@ -6,16 +6,37 @@
     using System.Data.OleDb;
     using System.IO;
     using System.IO.Compression;
+    using System.Linq.Expressions;
     using Models;
+    using Repositories.Contracts;
+    using System.Linq;
 
-    public static class ExcelImporter
+    public class ExcelImporter<Bug> : IReadableRepository<Bug>
     {
         private const string extractPath = "../../../Bugs";
+        private readonly string path;
 
-        public static List<Bug> ImportBugs(string path)
+        public ExcelImporter(string path)
+        {
+            this.path = path;
+        }
+
+        public IEnumerable<Bug> All()
+        {
+            return this.ImportBugs();
+        }
+
+        public IEnumerable<Bug> All(Expression<Func<Bug, bool>> predicate)
+        {
+            var func = predicate.Compile();
+
+            return this.All().Where(func).ToList();
+        }
+
+        private List<Bug> ImportBugs()
         {
             var bugs = new List<Bug>();
-            using (ZipArchive archive = ZipFile.Open(path, ZipArchiveMode.Update))
+            using (ZipArchive archive = ZipFile.Open(this.path, ZipArchiveMode.Update))
             {
                 if (!Directory.Exists(extractPath))
                 {
@@ -35,7 +56,7 @@
                             connection.Open();
                             var excelSchema = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
                             var sheetName = excelSchema.Rows[0]["TABLE_NAME"].ToString();
-                            var tempBugs = ReadExcelData(connection, sheetName);
+                            var tempBugs = this.ReadExcelData(connection, sheetName);
                             foreach (var bug in tempBugs)
                             {
                                 bugs.Add(bug);
@@ -49,7 +70,7 @@
             }
         }
 
-        private static List<Bug> ReadExcelData(OleDbConnection conn, string sheetName)
+        private List<Bug> ReadExcelData(OleDbConnection conn, string sheetName)
         {
             var excelDbCommand = new OleDbCommand(@"SELECT * FROM [" + sheetName + "]", conn);
             using (var oleDbDataAdapter = new OleDbDataAdapter(excelDbCommand))

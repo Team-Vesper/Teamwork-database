@@ -50,6 +50,10 @@
       <Project>{8746d04c-43b3-4de3-9668-4169ab64fc15}</Project>
       <Name>TeamVesper.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
+      <Project>{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}</Project>
+      <Name>TeamVesper.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

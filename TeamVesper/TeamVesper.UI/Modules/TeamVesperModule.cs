@@ -18,6 +18,19 @@ namespace TeamVesper.UI.Modules
         private const string SqlServerInitializer = "SqlServerInitializer";
         private const string SQLiteInitializer = "SQLiteInitializer";
 
+        private const string MongoDeveloperReadableRepository = "MongoDeveloperReadableRepository";
+        private const string SQLiteReadableRepository = "SQLiteReadableRepository";
+        private const string XmlReadableRepository = "XmlReadableRepository";
+        private const string ExcelReadableRepository = "ExcelReadableRepository";
+
+        private const string SqlServerRepository = "SqlServerRepository";
+        private const string MySqlRepository = "MySqlRepository";
+
+        private const string JsonReporter = "JsonReporter";
+        private const string XmlReporter = "XmlReporter";
+        private const string PdfReporter = "PdfReporter";
+        private const string ExcelReporter = "ExcelReporter";
+
         public override void Load()
         {
             Bind<MainForm>().To<MainForm>().InSingletonScope();
@@ -32,6 +45,8 @@ namespace TeamVesper.UI.Modules
             Bind<IDbInitializer>().To<MongoDbInitializer>().Named(MongoDbInitializer);
             Bind<IDbInitializer>().To<SqlServerInitializer>().Named(SqlServerInitializer);
             Bind<IDbInitializer>().To<SQLiteInitializer>().Named(SQLiteInitializer);
+
+            Bind<IRepositoryFactory>().ToFactory().InSingletonScope();
 
             Bind<SqlServerDbContext>().To<SqlServerDbContext>().InSingletonScope();
         }

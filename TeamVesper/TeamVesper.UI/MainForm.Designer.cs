@@ -55,23 +55,23 @@
             this.Import.TabIndex = 1;
             this.Import.Text = "Import";
             this.Import.UseVisualStyleBackColor = true;
-            this.Import.Click += new System.EventHandler(this.Transfer_Click);
+            this.Import.Click += new System.EventHandler(this.Import_Click);
             // 
             // Transfer
             // 
             this.Transfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Transfer.Location = new System.Drawing.Point(391, 170);
+            this.Transfer.Location = new System.Drawing.Point(567, 170);
             this.Transfer.Name = "Transfer";
             this.Transfer.Size = new System.Drawing.Size(146, 100);
             this.Transfer.TabIndex = 2;
             this.Transfer.Text = "Transfer";
             this.Transfer.UseVisualStyleBackColor = true;
-            this.Transfer.Click += new System.EventHandler(this.Import_Click);
+            this.Transfer.Click += new System.EventHandler(this.Transfer_Click);
             // 
             // Export
             // 
             this.Export.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Export.Location = new System.Drawing.Point(567, 170);
+            this.Export.Location = new System.Drawing.Point(391, 170);
             this.Export.Name = "Export";
             this.Export.Size = new System.Drawing.Size(146, 100);
             this.Export.TabIndex = 3;
