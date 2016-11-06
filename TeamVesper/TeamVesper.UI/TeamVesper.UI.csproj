@@ -167,6 +167,26 @@
       <Project>{F45724AC-16D9-407D-8E6A-F9E6C39D27B1}</Project>
       <Name>TeamVesper.DbCreate</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.ExportToExcel\TeamVesper.ExportToExcel.csproj">
+      <Project>{F09370ED-337D-401E-B230-82BA5CE1FC98}</Project>
+      <Name>TeamVesper.ExportToExcel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.ExportToJson\TeamVesper.ExportToJson.csproj">
+      <Project>{1292B4C0-EC49-4792-B0CA-412E49B04059}</Project>
+      <Name>TeamVesper.ExportToJson</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.ExportToPdf\TeamVesper.ExportToPdf.csproj">
+      <Project>{A275D9F1-F039-40D0-A291-F5A09224CF03}</Project>
+      <Name>TeamVesper.ExportToPdf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.ExportToXML\TeamVesper.ExportToXML.csproj">
+      <Project>{45B5E896-9C8F-4BB3-9A94-5036D53DC052}</Project>
+      <Name>TeamVesper.ExportToXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.Importers\TeamVesper.Importers.csproj">
+      <Project>{F41FF9DF-0A25-4952-82C4-8912847E5135}</Project>
+      <Name>TeamVesper.Importers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamVesper.Models\TeamVesper.Models.csproj">
       <Project>{8746D04C-43B3-4DE3-9668-4169AB64FC15}</Project>
       <Name>TeamVesper.Models</Name>
@@ -183,9 +203,17 @@
       <Project>{EF03E9B3-F3A1-4AAD-B2AD-2D3089F9E8B0}</Project>
       <Name>TeamVesper.Repositories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.SQLiteData\TeamVesper.SQLiteData.csproj">
+      <Project>{649A80B0-3AD3-49FF-BCBB-8A5CC3047208}</Project>
+      <Name>TeamVesper.SQLiteData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamVesper.SqlServerData\TeamVesper.SqlServerData.csproj">
       <Project>{E2263523-AD04-43A5-9390-F8EA35B3DA2B}</Project>
       <Name>TeamVesper.SqlServerData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.XmlDataReader\TeamVesper.XmlDataReader.csproj">
+      <Project>{676EBCC7-9320-42F3-9F46-00FC4074E876}</Project>
+      <Name>TeamVesper.XmlDataReader</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

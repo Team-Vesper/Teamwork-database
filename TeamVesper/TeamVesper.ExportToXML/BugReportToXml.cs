@@ -9,8 +9,7 @@ using TeamVesper.Repositories.Contracts;
 
 namespace TeamVesper.ExportToXML
 {
-    public class BugReportToXml<TEntity> : IReporter<TEntity>
-        where TEntity : BugReport
+    public class BugReportToXml : IReporter<BugReport>
     {
         private const string FileName = "BugsReports.xml";
         private const string Version = "1.0";
@@ -52,20 +51,20 @@ namespace TeamVesper.ExportToXML
             }
         }
 
-        public void ReportSingle(TEntity entity)
+        public void ReportSingle(BugReport entity)
         {
-            var list = new List<TEntity>();
+            var list = new List<BugReport>();
 
             list.Add(entity);
             this.ReportMany(list);
         }
 
-        public void ReportMany(IEnumerable<TEntity> entities)
+        public void ReportMany(IEnumerable<BugReport> entities)
         {
             this.XmlCreateReports(entities);
         }
 
-        private void XmlCreateReports(IEnumerable<TEntity> bugsReport)
+        private void XmlCreateReports(IEnumerable<BugReport> bugsReport)
         {
             XmlDocument xmlReport = new XmlDocument();
             XmlDeclaration xmlDeclaration = xmlReport.CreateXmlDeclaration(Version, Encoding, null);

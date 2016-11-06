@@ -10,8 +10,7 @@ using System.Linq;
 
 namespace TeamVesper.ExportToExcel
 {
-    public class CompanyExcelExporter<TEntity> : IReporter<TEntity>
-        where TEntity : CompanyOverview
+    public class CompanyExcelExporter : IReporter<CompanyOverview>
     {
         private string sheetName;
         private string outputFolder;
@@ -65,20 +64,20 @@ namespace TeamVesper.ExportToExcel
             }
         }
 
-        public void ReportMany(IEnumerable<TEntity> entities)
+        public void ReportMany(IEnumerable<CompanyOverview> entities)
         {
             this.ExportCollection(entities.ToList());
         }
 
-        public void ReportSingle(TEntity entity)
+        public void ReportSingle(CompanyOverview entity)
         {
-            var list = new List<TEntity>();
+            var list = new List<CompanyOverview>();
             list.Add(entity);
 
             this.ReportMany(list);
         }
 
-        private void ExportCollection(IList<TEntity> companyCollection)
+        private void ExportCollection(IList<CompanyOverview> companyCollection)
         {
             var workbook = new XLWorkbook();
             var worksheet = workbook.Worksheets.Add(this.sheetName);

@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 
 using System.Data.SQLite;
-
+using System.Linq;
+using System.Linq.Expressions;
 using TeamVesper.Models;
+using TeamVesper.Repositories.Contracts;
 
 namespace TeamVesper.SQLiteData
 {
-    public class SQLiteImport
+    public class SQLiteImport : IReadableRepository<Company>
     {
+        private const string defaultConnectionString = @"Data Source=TeamVesperSQLiteDb.sqlite;Version=3;";
         private string sqLiteDbConnectionString;
-
-        public SQLiteImport(string connectionString)
+        
+        public SQLiteImport(string connectionString = defaultConnectionString)
         {
             this.SQLiteDbConnectionString = connectionString;
         }
@@ -33,7 +36,19 @@ namespace TeamVesper.SQLiteData
             }
         }
 
-        public IEnumerable<Company> ExtractCompaniesAndTheirAverageSalaries()
+        public IEnumerable<Company> All()
+        {
+            return this.ExtractCompaniesAndTheirAverageSalaries();
+        }
+
+        public IEnumerable<Company> All(Expression<Func<Company, bool>> filterExpresion)
+        {
+            var predicate = filterExpresion.Compile();
+
+            return this.ExtractCompaniesAndTheirAverageSalaries().Where(predicate).ToList();
+        }
+
+        private IEnumerable<Company> ExtractCompaniesAndTheirAverageSalaries()
         {
             SQLiteConnection dbConnection = new SQLiteConnection(sqLiteDbConnectionString);
             dbConnection.Open();

@@ -10,6 +10,13 @@ using TeamVesper.Repositories.Contracts;
 using Ninject;
 using Ninject.Parameters;
 using TeamVesper.Repositories;
+using TeamVesper.SQLiteData;
+using TeamVesper.Importers;
+using TeamVesper.XmlDataReader;
+using TeamVesper.ExportToJson;
+using TeamVesper.ExportToExcel;
+using TeamVesper.ExportToPdf;
+using TeamVesper.ExportToXML;
 
 namespace TeamVesper.UI.Modules
 {
@@ -54,19 +61,31 @@ namespace TeamVesper.UI.Modules
 
             Bind<IRepositoryFactory>().ToFactory().InSingletonScope();
 
+            Bind<IReadableRepository<Company>>().To<SQLiteImport>().InSingletonScope().Named(SQLiteReadableRepository);
+            Bind<IReadableRepository<Bug>>().To<ExcelImporter>().InSingletonScope().Named(ExcelReadableRepository);
+            Bind<IReadableRepository<DTOEducation>>().To<XmlImporter>().InSingletonScope().Named(XmlReadableRepository);
             Bind<IReadableRepository<MongoDeveloper>>().ToMethod(ctx =>
             {
                 var connector = ctx.Kernel.Get<MongoConnector<MongoDeveloper>>();
                 var param = new ConstructorArgument("dbSet", connector.Dbset);
 
                 var repo = ctx.Kernel.Get<MongoRepository<MongoDeveloper>>(param);
-                
+
                 return repo;
 
             }).InSingletonScope().Named(MongoDeveloperReadableRepository);
 
+            Bind(typeof(IRepository<>)).To(typeof(SqlServerRepository<>)).Named(SqlServerRepository);
+            Bind<IRepository<DeveloperBugsInfo>>().To<MySqlRepository<DeveloperBugsInfo>>().Named(MySqlRepository);
 
             Bind<IReporterFactory>().ToFactory().InSingletonScope();
+
+            Bind<IReporter<MongoDeveloper>>().To<JsonToFile>().Named(JsonReporter);
+            Bind<IReporter<CompanyOverview>>().To<CompanyExcelExporter>().Named(ExcelReporter);
+            Bind<IReporter<BugInfo>>().To<PdfExporter>().Named(PdfReporter);
+            Bind<IReporter<BugReport>>().To<BugReportToXml>().Named(XmlReporter);
+
+            // TODO Dependencies bindings
 
             Bind<SqlServerDbContext>().To<SqlServerDbContext>().InSingletonScope();
             Bind<MongoConnector<MongoDeveloper>>().To<MongoConnector<MongoDeveloper>>().InSingletonScope();

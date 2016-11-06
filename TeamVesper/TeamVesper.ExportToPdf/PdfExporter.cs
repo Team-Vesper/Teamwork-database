@@ -4,14 +4,11 @@ using iTextSharp.text.pdf;
 using TeamVesper.Repositories.Contracts;
 using System.Collections.Generic;
 using System.IO;
-using TeamVesper.SqlServerData;
-using System.Linq;
 using TeamVesper.Models;
 
 namespace TeamVesper.ExportToPdf
 {
-    public class PdfExporter<TEntity> : IReporter<TEntity>
-        where TEntity : BugInfo
+    public class PdfExporter : IReporter<BugInfo>
     {
         private const string ReportFileName = "Bug";
         private const string FileExtension = "pdf";
@@ -56,21 +53,21 @@ namespace TeamVesper.ExportToPdf
             }
         }
 
-        public void ReportMany(IEnumerable<TEntity> entities)
+        public void ReportMany(IEnumerable<BugInfo> entities)
         {
             this.GeneratePdfReport(entities);
         }
 
-        public void ReportSingle(TEntity entity)
+        public void ReportSingle(BugInfo entity)
         {
-            var list = new List<TEntity>();
+            var list = new List<BugInfo>();
 
             list.Add(entity);
 
             this.ReportMany(list);
         }
 
-        private void GeneratePdfReport(IEnumerable<TEntity> report)
+        private void GeneratePdfReport(IEnumerable<BugInfo> report)
         {
             var document = new Document(PageSize.A4);
             var fileName = AddDateTimeSuffixtoFileName(ReportFileName) + FileExtension;
@@ -115,7 +112,7 @@ namespace TeamVesper.ExportToPdf
             return table;
         }
 
-        private void AddDataInReportTable(PdfPTable table, IEnumerable<TEntity> report)
+        private void AddDataInReportTable(PdfPTable table, IEnumerable<BugInfo> report)
         {
             foreach (var bug in report)
             {

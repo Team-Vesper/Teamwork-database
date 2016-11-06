@@ -7,8 +7,7 @@ using TeamVesper.Repositories.Contracts;
 
 namespace TeamVesper.ExportToJson
 {
-    public class JsonToFile<TEntity> : IReporter<TEntity>
-        where TEntity : MongoDeveloper
+    public class JsonToFile : IReporter<MongoDeveloper>
     {
         private string folderPath;
         private IJsonSeriliazer seriliazer;
@@ -57,7 +56,7 @@ namespace TeamVesper.ExportToJson
             }
         }
 
-        public void ReportMany(IEnumerable<TEntity> entities)
+        public void ReportMany(IEnumerable<MongoDeveloper> entities)
         {
             foreach (var entity in entities)
             {
@@ -65,7 +64,7 @@ namespace TeamVesper.ExportToJson
             }
         }
 
-        public void ReportSingle(TEntity entity)
+        public void ReportSingle(MongoDeveloper entity)
         {
             var json = this.seriliazer.Seriliaze(entity);
 
