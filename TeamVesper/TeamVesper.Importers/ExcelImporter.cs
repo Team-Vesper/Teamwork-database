@@ -27,9 +27,9 @@ namespace TeamVesper.Importers
             return this.ImportBugs();
         }
 
-        public IEnumerable<Bug> All(Expression<Func<Bug, bool>> predicate)
+        public IEnumerable<Bug> All(Expression<Func<Bug, bool>> filerExpresion)
         {
-            var func = predicate.Compile();
+            var func = filerExpresion.Compile();
 
             return this.All().Where(func).ToList();
         }

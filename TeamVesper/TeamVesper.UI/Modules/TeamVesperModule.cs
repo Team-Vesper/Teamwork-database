@@ -17,11 +17,18 @@ using TeamVesper.ExportToJson;
 using TeamVesper.ExportToExcel;
 using TeamVesper.ExportToPdf;
 using TeamVesper.ExportToXML;
+using Telerik.OpenAccess;
+using TeamVesper.MySqlData;
+using TeamVesper.ExportToJson.Contracts;
 
 namespace TeamVesper.UI.Modules
 {
     public class TeamVesperModule : NinjectModule
     {
+        private const string DefaultReportPath = @"../../../reports/";
+        private const string DefaultFileName = "Report";
+        private const string DefaultSheetName = "Company";
+
         private const string CreateDbForm = "CreateDbForm";
         private const string ImportForm = "ImportForm";
         private const string TransferForm = "TransferForm";
@@ -43,6 +50,8 @@ namespace TeamVesper.UI.Modules
         private const string XmlReporter = "XmlReporter";
         private const string PdfReporter = "PdfReporter";
         private const string ExcelReporter = "ExcelReporter";
+
+
 
         public override void Load()
         {
@@ -80,15 +89,44 @@ namespace TeamVesper.UI.Modules
 
             Bind<IReporterFactory>().ToFactory().InSingletonScope();
 
-            Bind<IReporter<MongoDeveloper>>().To<JsonToFile>().Named(JsonReporter);
-            Bind<IReporter<CompanyOverview>>().To<CompanyExcelExporter>().Named(ExcelReporter);
-            Bind<IReporter<BugInfo>>().To<PdfExporter>().Named(PdfReporter);
-            Bind<IReporter<BugReport>>().To<BugReportToXml>().Named(XmlReporter);
+            Bind<IReporter<MongoDeveloper>>().ToMethod(ctx =>
+            {
+                var param = new ConstructorArgument("folderPath", DefaultReportPath + @"Json/");
+
+                return ctx.Kernel.Get<JsonToFile>(param);
+            }).Named(JsonReporter);
+
+            Bind<IReporter<CompanyOverview>>().ToMethod(ctx =>
+            {
+                var paramSheetName = new ConstructorArgument("sheetName", DefaultSheetName);
+                var paramFolder = new ConstructorArgument("outputFolder", DefaultReportPath + @"Excel/");
+                var paramFile = new ConstructorArgument("outputFileName", DefaultFileName);
+
+                return ctx.Kernel.Get<CompanyExcelExporter>(paramSheetName, paramFolder, paramFile);
+            }).Named(ExcelReporter);
+
+            Bind<IReporter<BugInfo>>().ToMethod(ctx =>
+            {
+                var param = new ConstructorArgument("folderPath", DefaultReportPath + @"Pdf/");
+
+                return ctx.Kernel.Get<PdfExporter>(param);
+            }).Named(PdfReporter);
+
+            Bind<IReporter<BugReport>>().ToMethod(ctx =>
+            {
+                var param = new ConstructorArgument("folderPath", DefaultReportPath + @"Xml/");
+
+                return ctx.Kernel.Get<BugReportToXml>(param);
+            }).Named(XmlReporter);
 
             // TODO Dependencies bindings
 
             Bind<SqlServerDbContext>().To<SqlServerDbContext>().InSingletonScope();
             Bind<MongoConnector<MongoDeveloper>>().To<MongoConnector<MongoDeveloper>>().InSingletonScope();
+            Bind<ICurrentSqlServerDbContext>().To<SqlServerDbContext>();
+            Bind<OpenAccessContext>().To<MySqlContext>().InSingletonScope();
+            Bind<MySqlContext>().To<MySqlContext>().InSingletonScope();
+            Bind<IJsonSeriliazer>().To<JsonSeriliazer>();
         }
     }
 }

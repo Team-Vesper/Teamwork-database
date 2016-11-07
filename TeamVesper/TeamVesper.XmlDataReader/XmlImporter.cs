@@ -49,9 +49,9 @@ namespace TeamVesper.XmlDataReader
             return this.GetAllDeveloppersEducations();
         }
 
-        public IEnumerable<DTOEducation> All(Expression<Func<DTOEducation, bool>> predicate)
+        public IEnumerable<DTOEducation> All(Expression<Func<DTOEducation, bool>> filterExpresion)
         {
-            var func = predicate.Compile();
+            var func = filterExpresion.Compile();
 
             return this.All().Where(func).ToList();
         }
