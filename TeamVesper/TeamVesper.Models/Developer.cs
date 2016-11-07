@@ -53,7 +53,7 @@ namespace TeamVesper.Models
         public virtual Team Team { get; set; }
 
         public virtual int SpecialityId { get; set; }
-        
+
         public virtual Speciality Speciality { get; set; }
 
         public virtual ICollection<Bug> WorkingOn
@@ -61,5 +61,7 @@ namespace TeamVesper.Models
             get { return this.workingOn; }
             set { this.workingOn = value; }
         }
+        
+        public virtual Education Education { get; set; }
     }
 }

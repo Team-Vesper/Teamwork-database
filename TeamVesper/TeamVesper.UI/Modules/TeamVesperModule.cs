@@ -58,6 +58,7 @@ namespace TeamVesper.UI.Modules
         private const string StarndartModelsToMongoModelMapper = "StarndartModelsToMongoModelMapper";
         private const string BugToBugInfoMapper = "BugToBugInfoMapper";
         private const string BugToBugReportMapper = "BugToBugReportMapper";
+        private const string DTOEducationToDbEducationMapper = "DTOEducationToDbEducationMapper";
 
         public override void Load()
         {
@@ -78,7 +79,13 @@ namespace TeamVesper.UI.Modules
 
             Bind<IReadableRepository<Company>>().To<SQLiteImport>().InSingletonScope().Named(SQLiteReadableRepository);
             Bind<IReadableRepository<Bug>>().To<ExcelImporter>().InSingletonScope().Named(ExcelReadableRepository);
-            Bind<IReadableRepository<DTOEducation>>().To<XmlImporter>().InSingletonScope().Named(XmlReadableRepository);
+            Bind<IReadableRepository<DTOEducation>>().ToMethod(ctx =>
+            {
+                var param = new ConstructorArgument("filePath", @"../../../DataSources/XML/Educations.xml");
+
+                return ctx.Kernel.Get<XmlImporter>(param);
+            }).InSingletonScope().Named(XmlReadableRepository);
+
             Bind<IReadableRepository<MongoDeveloper>>().ToMethod(ctx =>
             {
                 var connector = ctx.Kernel.Get<MongoConnector<MongoDeveloper>>();
@@ -151,6 +158,7 @@ namespace TeamVesper.UI.Modules
             Bind<StarndartModelsToMongoModelMapper>().To<StarndartModelsToMongoModelMapper>().Named(StarndartModelsToMongoModelMapper);
             Bind<BugToBugInfoMapper>().To<BugToBugInfoMapper>().Named(BugToBugInfoMapper);
             Bind<BugToBugReportMapper>().To<BugToBugReportMapper>().Named(BugToBugReportMapper);
+            Bind<DTOEducationToDbEducationMapper>().To<DTOEducationToDbEducationMapper>().Named(DTOEducationToDbEducationMapper);
 
             // TODO Dependencies bindings
 

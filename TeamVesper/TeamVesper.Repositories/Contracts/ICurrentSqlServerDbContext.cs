@@ -8,7 +8,7 @@ namespace TeamVesper.Repositories.Contracts
 {
     public interface ICurrentSqlServerDbContext : IDbContext
     {
-        IDbSet<Bug> Bugs { get;}
+        IDbSet<Bug> Bugs { get; }
 
         IDbSet<Developer> Developers { get; }
 
@@ -17,6 +17,8 @@ namespace TeamVesper.Repositories.Contracts
         IDbSet<Speciality> Specialities { get; }
 
         IDbSet<Priority> Priorities { get; }
+
+        IDbSet<Education> Educations { get; }
 
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
 

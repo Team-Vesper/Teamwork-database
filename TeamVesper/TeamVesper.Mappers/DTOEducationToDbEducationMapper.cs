@@ -1,22 +1,19 @@
 ﻿using System.Collections.Generic;
 using TeamVesper.Models;
 
-namespace TeamVesper.XmlDataReader
+namespace TeamVesper.Mappers
 {
-    // TODO move this where is needed. Its mapper!
-
-    public class DTOEducationToDbEducationConverter
+    public class DTOEducationToDbEducationMapper
     {
-        public DTOEducationToDbEducationConverter(IEnumerable<DTOEducation> collection)
+        public DTOEducationToDbEducationMapper()
         {
-            this.Collection = collection;
+            
         }
 
-        internal IEnumerable<DTOEducation> Collection { get; set; }
 
-        public IEnumerable<Education> GetAllEducations()
+        public IEnumerable<Education> GetAllEducations(IEnumerable<DTOEducation> collection)
         {
-            var dtoEducations = this.Collection;
+            var dtoEducations = collection;
             var resultEducations = new HashSet<Education>();
 
             foreach (var dtoEducation in dtoEducations)

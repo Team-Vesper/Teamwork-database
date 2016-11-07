@@ -12,23 +12,28 @@ namespace TeamVesper.UI
     {
         private IRepositoryFactory repoFactory;
         private IUnitOfWorkFactory unitOfWorkFactory;
+        private IMapperFactory mapperFactory;
 
-        public ImportForm(IRepositoryFactory repoFactory, IUnitOfWorkFactory unitOfWorkFactory)
+        public ImportForm(IRepositoryFactory repoFactory,
+                            IUnitOfWorkFactory unitOfWorkFactory,
+                            IMapperFactory mapperFactory)
         {
             this.repoFactory = repoFactory;
             this.unitOfWorkFactory = unitOfWorkFactory;
+            this.mapperFactory = mapperFactory;
             InitializeComponent();
         }
 
         private void ImportMongoDB_Click(object sender, EventArgs e)
         {
-            var task = new Task(() => ImportMongo());
+            var task = new Task(() => ImportFromMongo());
             task.Start();
         }
 
         private void ImportXML_Click(object sender, EventArgs e)
         {
-
+            var task = new Task(() => ImportFromXML());
+            task.Start();
         }
 
         private void ImportExcel_Click(object sender, EventArgs e)
@@ -44,7 +49,7 @@ namespace TeamVesper.UI
             this.Close();
         }
 
-        private async Task ImportMongo()
+        private async Task ImportFromMongo()
         {
             var source = this.repoFactory.GetMongoDeveloperReadableRepository<MongoDeveloper>();
 
@@ -62,6 +67,22 @@ namespace TeamVesper.UI
                 //db.SaveChanges();
                 //  unitOfWork.Commit(); //  <= this just do not work! 
             }
+
+            await Task.Delay(1);
+        }
+
+        private async Task ImportFromXML()
+        {
+            var xmlRepo = repoFactory.GetXmlReadableRepository<DTOEducation>();
+            var xmls = xmlRepo.All();
+
+            var sqlRepo = repoFactory.GetSqlServerRepository<Education>();
+
+            var mapper = mapperFactory.GetDTOEducationToDbEducationMapper();
+
+            var result = mapper.GetAllEducations(xmls);
+
+            sqlRepo.AddMany(result);
 
             await Task.Delay(1);
         }

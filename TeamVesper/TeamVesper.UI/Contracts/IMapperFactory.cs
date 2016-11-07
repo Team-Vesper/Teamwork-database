@@ -1,4 +1,6 @@
-﻿using TeamVesper.Mappers;
+﻿using System.Collections.Generic;
+using TeamVesper.Mappers;
+using TeamVesper.Models;
 
 namespace TeamVesper.UI.Contracts
 {
@@ -9,5 +11,7 @@ namespace TeamVesper.UI.Contracts
         BugToBugInfoMapper GetBugToBugInfoMapper();
 
         BugToBugReportMapper GetBugToBugReportMapper();
+
+        DTOEducationToDbEducationMapper GetDTOEducationToDbEducationMapper();
     }
 }
