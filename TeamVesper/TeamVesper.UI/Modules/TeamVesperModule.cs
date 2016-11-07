@@ -41,6 +41,7 @@ namespace TeamVesper.UI.Modules
         private const string MongoDbInitializer = "MongoDbInitializer";
         private const string SqlServerInitializer = "SqlServerInitializer";
         private const string SQLiteInitializer = "SQLiteInitializer";
+        private const string MySqlInitializer = "MySqlInitializer";
 
         private const string MongoDeveloperReadableRepository = "MongoDeveloperReadableRepository";
         private const string SQLiteReadableRepository = "SQLiteReadableRepository";
@@ -77,6 +78,7 @@ namespace TeamVesper.UI.Modules
             Bind<IDbInitializer>().To<MongoDbInitializer>().Named(MongoDbInitializer);
             Bind<IDbInitializer>().To<SqlServerInitializer>().Named(SqlServerInitializer);
             Bind<IDbInitializer>().To<SQLiteInitializer>().Named(SQLiteInitializer);
+            Bind<IDbInitializer>().To<MySqlInitializer>().Named(MySqlInitializer);
 
             Bind<IRepositoryFactory>().ToFactory().InSingletonScope();
 
@@ -108,7 +110,7 @@ namespace TeamVesper.UI.Modules
             }).InSingletonScope().Named(MongoDeveloperReadableRepository);
 
             Bind(typeof(IRepository<>)).To(typeof(SqlServerRepository<>)).Named(SqlServerRepository);
-            Bind<IRepository<DeveloperBugsInfo>>().To<MySqlRepository<DeveloperBugsInfo>>().Named(MySqlRepository);
+            Bind<IRepository<DeveloperBugsInfo>>().To<MySqlRepository>().Named(MySqlRepository);
 
             Bind<IReporterFactory>().ToFactory().InSingletonScope();
 

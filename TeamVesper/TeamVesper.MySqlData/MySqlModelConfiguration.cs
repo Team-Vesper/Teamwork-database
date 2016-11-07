@@ -17,10 +17,10 @@ namespace TeamVesper.MySqlData
 
             DevBugMap.MapType(x => new
             {
-                username = x.UserName,
-                firstName = x.FirstName,
-                lastName = x.LastName,
-                bugsFixed = x.BugsFixed
+                Username = x.UserName,
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                BugsFixed = x.BugsFixed
             }).ToTable("DeveloperBugsInfo");
 
             configurations.Add(DevBugMap);

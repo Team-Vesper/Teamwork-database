@@ -32,12 +32,13 @@
             this.CreateSQLServerButton = new System.Windows.Forms.Button();
             this.CreateSQLiteButton = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
+            this.CreateMySQL = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CreateMongoDbButton
             // 
             this.CreateMongoDbButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CreateMongoDbButton.Location = new System.Drawing.Point(96, 170);
+            this.CreateMongoDbButton.Location = new System.Drawing.Point(27, 170);
             this.CreateMongoDbButton.Name = "CreateMongoDbButton";
             this.CreateMongoDbButton.Size = new System.Drawing.Size(161, 100);
             this.CreateMongoDbButton.TabIndex = 1;
@@ -48,7 +49,7 @@
             // CreateSQLServerButton
             // 
             this.CreateSQLServerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CreateSQLServerButton.Location = new System.Drawing.Point(310, 170);
+            this.CreateSQLServerButton.Location = new System.Drawing.Point(221, 170);
             this.CreateSQLServerButton.Name = "CreateSQLServerButton";
             this.CreateSQLServerButton.Size = new System.Drawing.Size(161, 100);
             this.CreateSQLServerButton.TabIndex = 2;
@@ -59,7 +60,7 @@
             // CreateSQLiteButton
             // 
             this.CreateSQLiteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CreateSQLiteButton.Location = new System.Drawing.Point(524, 170);
+            this.CreateSQLiteButton.Location = new System.Drawing.Point(415, 170);
             this.CreateSQLiteButton.Name = "CreateSQLiteButton";
             this.CreateSQLiteButton.Size = new System.Drawing.Size(161, 100);
             this.CreateSQLiteButton.TabIndex = 3;
@@ -78,16 +79,28 @@
             this.Back.UseVisualStyleBackColor = true;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
-            // CreateDB
+            // CreateMySQL
+            // 
+            this.CreateMySQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CreateMySQL.Location = new System.Drawing.Point(609, 170);
+            this.CreateMySQL.Name = "CreateMySQL";
+            this.CreateMySQL.Size = new System.Drawing.Size(161, 100);
+            this.CreateMySQL.TabIndex = 6;
+            this.CreateMySQL.Text = "Create MySQL";
+            this.CreateMySQL.UseVisualStyleBackColor = true;
+            this.CreateMySQL.Click += new System.EventHandler(this.CreateMySQL_Click);
+            // 
+            // CreateDBForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.CreateMySQL);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.CreateSQLiteButton);
             this.Controls.Add(this.CreateSQLServerButton);
             this.Controls.Add(this.CreateMongoDbButton);
-            this.Name = "CreateDB";
+            this.Name = "CreateDBForm";
             this.Text = "CreateDB";
             this.ResumeLayout(false);
 
@@ -99,5 +112,6 @@
         private System.Windows.Forms.Button CreateSQLServerButton;
         private System.Windows.Forms.Button CreateSQLiteButton;
         private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Button CreateMySQL;
     }
 }

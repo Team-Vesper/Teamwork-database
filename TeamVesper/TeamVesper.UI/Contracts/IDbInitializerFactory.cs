@@ -9,5 +9,7 @@ namespace TeamVesper.UI.Contracts
         IDbInitializer GetSqlServerInitializer();
 
         IDbInitializer GetSQLiteInitializer();
+
+        IDbInitializer GetMySqlInitializer();
     }
 }

@@ -49,7 +49,8 @@ namespace TeamVesper.UI
 
         private void ReportExcel_Click(object sender, EventArgs e)
         {
-
+            var task = new Task(() => ExportToExcel());
+            task.Start();
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -93,6 +94,29 @@ namespace TeamVesper.UI
             var reports = mapper.ExtractBugInfo();
 
             reporter.ReportMany(reports);
+
+            await Task.Delay(1);
+        }
+
+        private async Task ExportToExcel()
+        {
+            var SqlServerRepo = this.repositoryFactory.GetSqlServerRepository<Developer>();
+
+            var reporter = this.reporterFactory.GetExcelReporter<CompanyOverview>();
+
+            var result = SqlServerRepo.All().ToList();
+
+            var grouped = result.GroupBy(x => x.Team.Name)
+                                .Select(gr => new
+                                {
+                                    Team = gr.Key,
+                                    NumberOfDevelopers = gr.Count(),
+                                    BugsSolved = gr.Sum(dev => dev.WorkingOn.Count)
+                                })
+                                .ToList();
+
+            // TODO ask how to use that !
+
 
             await Task.Delay(1);
         }

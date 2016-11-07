@@ -11,8 +11,7 @@ namespace TeamVesper.Repositories
 {
     // TODO Return control of save changes when fix unit of work !  
 
-    public class MySqlRepository<TEntity> : IRepository<TEntity>
-        where TEntity : DeveloperBugsInfo
+    public class MySqlRepository : IRepository<DeveloperBugsInfo>
     {
 
         private OpenAccessContext dbContext;
@@ -35,14 +34,14 @@ namespace TeamVesper.Repositories
             }
         }
 
-        public void Add(TEntity entity)
+        public void Add(DeveloperBugsInfo entity)
         {
             this.dbContext.Add(entity);
 
             this.dbContext.SaveChanges();
         }
 
-        public void AddMany(IEnumerable<TEntity> entities)
+        public void AddMany(IEnumerable<DeveloperBugsInfo> entities)
         {
             foreach (var entity in entities)
             {
@@ -52,25 +51,25 @@ namespace TeamVesper.Repositories
             this.dbContext.SaveChanges();
         }
 
-        public IEnumerable<TEntity> All()
+        public IEnumerable<DeveloperBugsInfo> All()
         {
-            return this.dbContext.GetAll<TEntity>().ToList();
+            return this.dbContext.GetAll<DeveloperBugsInfo>().ToList();
         }
 
-        public IEnumerable<TEntity> All(Expression<Func<TEntity, bool>> predicate)
+        public IEnumerable<DeveloperBugsInfo> All(Expression<Func<DeveloperBugsInfo, bool>> predicate)
         {
             var func = predicate.Compile();
             return this.All().Where(func).ToList();
         }
 
-        public void Remove(TEntity entity)
+        public void Remove(DeveloperBugsInfo entity)
         {
             this.dbContext.Delete(entity);
 
             this.dbContext.SaveChanges();
         }
 
-        public void RemoveMany(IEnumerable<TEntity> entities)
+        public void RemoveMany(IEnumerable<DeveloperBugsInfo> entities)
         {
             foreach (var entity in entities)
             {

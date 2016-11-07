@@ -40,6 +40,12 @@ namespace TeamVesper.UI
             task.Start();
         }
 
+        private void CreateMySQL_Click(object sender, EventArgs e)
+        {
+            var task = new Task(() => this.CreateMySqlDb());
+            task.Start();
+        }
+
         private void Back_Click(object sender, EventArgs e)
         {
             var parent = (MainForm)this.Tag;
@@ -66,6 +72,14 @@ namespace TeamVesper.UI
         {
             var init = factory.GetSQLiteInitializer();
             init.CreateDB();
+            await Task.Delay(1);
+        }
+
+        private async Task CreateMySqlDb()
+        {
+            var init = this.factory.GetMySqlInitializer();
+            init.CreateDB();
+
             await Task.Delay(1);
         }
     }
