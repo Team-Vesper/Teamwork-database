@@ -29,10 +29,10 @@ namespace TeamVesper.DbCreate
 
             //SQLiteDbCreate();
 
-            PrioritiesDB.Add();
-            SpecialitiesDB.Add();
-            TeamsDB.Add();
-            DevelopersActions.AddFromTest();
+            //PrioritiesDB.Add();
+            //SpecialitiesDB.Add();
+            //TeamsDB.Add();
+            //DevelopersActions.AddFromTest();
 
             //var bugList = ExcelImporter.ImportBugs(zipPath);            
             // BugsDB.Add(bugList);

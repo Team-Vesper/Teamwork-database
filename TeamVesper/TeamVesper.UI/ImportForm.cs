@@ -38,7 +38,8 @@ namespace TeamVesper.UI
 
         private void ImportExcel_Click(object sender, EventArgs e)
         {
-
+            var task = new Task(() => ImportFromExcel());
+            task.Start();
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -83,6 +84,19 @@ namespace TeamVesper.UI
             var result = mapper.GetAllEducations(xmls);
 
             sqlRepo.AddMany(result);
+
+            await Task.Delay(1);
+        }
+
+        private async Task ImportFromExcel()
+        {
+            var sourseRepo = this.repoFactory.GetExcelReadableRepository<Bug>();
+
+            var destRepo = this.repoFactory.GetSqlServerRepository<Bug>();
+
+            var bugs = sourseRepo.All();
+
+            destRepo.AddMany(bugs);
 
             await Task.Delay(1);
         }

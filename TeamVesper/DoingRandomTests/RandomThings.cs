@@ -4,6 +4,7 @@ using TeamVesper.Mappers;
 using TeamVesper.SqlServerData;
 using System.Data.Entity;
 using System.Linq;
+using TeamVesper.Importers;
 
 namespace DoingRandomTests
 {
@@ -11,12 +12,20 @@ namespace DoingRandomTests
     {
         public static void Main()
         {
-            Database.SetInitializer(
-                   new DropCreateDatabaseIfModelChanges<SqlServerDbContext>());
+            //var db = new SqlServerDbContext();
 
-            var db = new SqlServerDbContext();
+            //var sourse = new ExcelImporter(@"../../../Bugs.zip");
 
-            db.Database.CreateIfNotExists();
+            //var map = new BugToBugMapper(db);
+
+            //var result = map.BugToBugConnection(sourse.All());
+
+            //foreach (var item in sourse.All())
+            //{
+            //    System.Console.WriteLine(item.PriorityId);
+            //}
+
+            //db.SaveChanges();
         }
 
         private static IEnumerable<MongoDeveloper> GetMongoDevelopers()

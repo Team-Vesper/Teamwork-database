@@ -5,7 +5,10 @@
 
     public static class PrioritiesDB
     {
-        public static void Add()
+        // logic moved to SqlServerInitializer
+        // TODO delete
+
+        private static void Add()
         {
             var sqlSever = new SqlServerDbContext();
             string[] priorities = new string[4];

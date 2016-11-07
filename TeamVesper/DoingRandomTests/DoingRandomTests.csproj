@@ -60,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TeamVesper.Importers\TeamVesper.Importers.csproj">
+      <Project>{F41FF9DF-0A25-4952-82C4-8912847E5135}</Project>
+      <Name>TeamVesper.Importers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamVesper.Mappers\TeamVesper.Mappers.csproj">
       <Project>{e666deb1-c969-4560-b143-26c96b2d9d37}</Project>
       <Name>TeamVesper.Mappers</Name>

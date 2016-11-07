@@ -26,6 +26,9 @@ namespace TeamVesper.UI.Modules
 {
     public class TeamVesperModule : NinjectModule
     {
+        private const string XlmFileForImportPath = @"../../../DataSources/XML/Educations.xml";
+        private const string ExcelFileForImportPath = @"../../../Bugs.zip";
+
         private const string DefaultReportPath = @"../../../reports/";
         private const string DefaultFileName = "Report";
         private const string DefaultSheetName = "Company";
@@ -78,10 +81,17 @@ namespace TeamVesper.UI.Modules
             Bind<IRepositoryFactory>().ToFactory().InSingletonScope();
 
             Bind<IReadableRepository<Company>>().To<SQLiteImport>().InSingletonScope().Named(SQLiteReadableRepository);
-            Bind<IReadableRepository<Bug>>().To<ExcelImporter>().InSingletonScope().Named(ExcelReadableRepository);
+
+            Bind<IReadableRepository<Bug>>().ToMethod(ctx =>
+            {
+                var param = new ConstructorArgument("path", ExcelFileForImportPath);
+
+                return ctx.Kernel.Get<ExcelImporter>(param);
+            }).InSingletonScope().Named(ExcelReadableRepository);
+
             Bind<IReadableRepository<DTOEducation>>().ToMethod(ctx =>
             {
-                var param = new ConstructorArgument("filePath", @"../../../DataSources/XML/Educations.xml");
+                var param = new ConstructorArgument("filePath", XlmFileForImportPath);
 
                 return ctx.Kernel.Get<XmlImporter>(param);
             }).InSingletonScope().Named(XmlReadableRepository);
