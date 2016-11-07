@@ -7,10 +7,11 @@ namespace TeamVesper.Models
     {
         public Bug()
         {
-
+            this.AcceptedOn = DateTime.Now;
         }
 
         public Bug(string description)
+            :this()
         {
             this.Description = description;
         }
@@ -33,6 +34,8 @@ namespace TeamVesper.Models
         public virtual Speciality Speciality { get; set; }
 
         public virtual Developer AttachedTo { get; set; }
+
+        public DateTime AcceptedOn { get; set; }
 
         public DateTime? solvedOn { get; set; }
     }

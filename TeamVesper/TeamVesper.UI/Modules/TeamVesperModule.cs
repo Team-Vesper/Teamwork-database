@@ -54,8 +54,10 @@ namespace TeamVesper.UI.Modules
 
         private const string SqlServerUnitOFWork = "SqlServerUnitOFWork";
         private const string MySqlUnitOfWork = "MySqlUnitOfWork";
+
         private const string StarndartModelsToMongoModelMapper = "StarndartModelsToMongoModelMapper";
         private const string BugToBugInfoMapper = "BugToBugInfoMapper";
+        private const string BugToBugReportMapper = "BugToBugReportMapper";
 
         public override void Load()
         {
@@ -148,6 +150,7 @@ namespace TeamVesper.UI.Modules
 
             Bind<StarndartModelsToMongoModelMapper>().To<StarndartModelsToMongoModelMapper>().Named(StarndartModelsToMongoModelMapper);
             Bind<BugToBugInfoMapper>().To<BugToBugInfoMapper>().Named(BugToBugInfoMapper);
+            Bind<BugToBugReportMapper>().To<BugToBugReportMapper>().Named(BugToBugReportMapper);
 
             // TODO Dependencies bindings
 
@@ -156,8 +159,8 @@ namespace TeamVesper.UI.Modules
             Bind<ICurrentSqlServerDbContext>().To<SqlServerDbContext>();
             Bind<OpenAccessContext>().To<MySqlContext>().InSingletonScope();
             Bind<MySqlContext>().To<MySqlContext>().InSingletonScope();
-            Bind<IJsonSeriliazer>().To<JsonSeriliazer>();    
-            
+            Bind<IJsonSeriliazer>().To<JsonSeriliazer>();
+
         }
     }
 }

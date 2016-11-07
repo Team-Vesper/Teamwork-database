@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BugToBugInfoMapper.cs" />
+    <Compile Include="BugToBugReportMapper.cs" />
     <Compile Include="MongoDeveloperCollectionsExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StandartModelsToDeveloperBugsInfo.cs" />

@@ -43,7 +43,8 @@ namespace TeamVesper.UI
 
         private void ReportXML_Click(object sender, EventArgs e)
         {
-
+            var task = new Task(() => ExportToXML());
+            task.Start();
         }
 
         private void ReportExcel_Click(object sender, EventArgs e)
@@ -79,6 +80,19 @@ namespace TeamVesper.UI
             var buginfos = mapper.ExtractBugInfo();
 
             reporter.ReportMany(buginfos);
+
+            await Task.Delay(1);
+        }
+
+        private async Task ExportToXML()
+        {
+            var reporter = this.reporterFactory.GetXmlReporter<BugReport>();
+
+            var mapper = this.mapperfactory.GetBugToBugReportMapper();
+
+            var reports = mapper.ExtractBugInfo();
+
+            reporter.ReportMany(reports);
 
             await Task.Delay(1);
         }

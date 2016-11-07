@@ -7,5 +7,7 @@ namespace TeamVesper.UI.Contracts
         StarndartModelsToMongoModelMapper GetStarndartModelsToMongoModelMapper();
 
         BugToBugInfoMapper GetBugToBugInfoMapper();
+
+        BugToBugReportMapper GetBugToBugReportMapper();
     }
 }
