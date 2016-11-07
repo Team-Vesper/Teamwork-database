@@ -8,6 +8,6 @@ namespace TeamVesper.Repositories.Contracts
     {
         IEnumerable<TEntity> All();
 
-        IEnumerable<TEntity> All(Expression<Func<TEntity, bool>> predicate);
+        IEnumerable<TEntity> All(Expression<Func<TEntity, bool>> filterExpresion);
     }
 }

@@ -26,27 +26,7 @@ namespace TeamVesper.Models
         [Required]
         [MinLength(2)]
         [MaxLength(50)]
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Speciality name");
-                }
-
-                if (value.Length < 2 || 50 < value.Length)
-                {
-                    throw new ArgumentException("Speciality name lenght should be in range 2-50 symbols!");
-                }
-
-                this.name = value;
-            }
-        }
+        public string Name { get; set; }
 
         public virtual ICollection<Developer> Developers
         {

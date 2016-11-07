@@ -9,6 +9,8 @@ using Telerik.OpenAccess;
 
 namespace TeamVesper.Repositories
 {
+    // TODO Return control of save changes when fix unit of work !  
+
     public class MySqlRepository<TEntity> : IRepository<TEntity>
         where TEntity : DeveloperBugsInfo
     {
@@ -36,6 +38,8 @@ namespace TeamVesper.Repositories
         public void Add(TEntity entity)
         {
             this.dbContext.Add(entity);
+
+            this.dbContext.SaveChanges();
         }
 
         public void AddMany(IEnumerable<TEntity> entities)
@@ -44,6 +48,8 @@ namespace TeamVesper.Repositories
             {
                 this.dbContext.Add(entity);
             }
+
+            this.dbContext.SaveChanges();
         }
 
         public IEnumerable<TEntity> All()
@@ -60,6 +66,8 @@ namespace TeamVesper.Repositories
         public void Remove(TEntity entity)
         {
             this.dbContext.Delete(entity);
+
+            this.dbContext.SaveChanges();
         }
 
         public void RemoveMany(IEnumerable<TEntity> entities)
@@ -68,6 +76,8 @@ namespace TeamVesper.Repositories
             {
                 this.dbContext.Delete(entity);
             }
+
+            this.dbContext.SaveChanges();
         }
 
         //public void Update(TEntity entity)

@@ -107,6 +107,7 @@
     <Compile Include="Contracts\IFormFactory.cs" />
     <Compile Include="Contracts\IReporterFactory.cs" />
     <Compile Include="Contracts\IRepositoryFactory.cs" />
+    <Compile Include="Contracts\IUnitOfWorkFactory.cs" />
     <Compile Include="CreateDBForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +203,10 @@
     <ProjectReference Include="..\TeamVesper.Importers\TeamVesper.Importers.csproj">
       <Project>{F41FF9DF-0A25-4952-82C4-8912847E5135}</Project>
       <Name>TeamVesper.Importers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.Mappers\TeamVesper.Mappers.csproj">
+      <Project>{e666deb1-c969-4560-b143-26c96b2d9d37}</Project>
+      <Name>TeamVesper.Mappers</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeamVesper.Models\TeamVesper.Models.csproj">
       <Project>{8746D04C-43B3-4DE3-9668-4169AB64FC15}</Project>

@@ -6,11 +6,6 @@ namespace TeamVesper.Models
 {
     public class Developer
     {
-        private int id;
-        private string userName;
-        private string firstName;
-        private string lastName;
-        private int age;
         private ICollection<Bug> workingOn;
 
         public Developer()
@@ -22,6 +17,7 @@ namespace TeamVesper.Models
                             string firstName,
                             string lastName,
                             int age)
+            : this()
         {
             this.UserName = userName;
             this.FirstName = firstName;
@@ -30,115 +26,25 @@ namespace TeamVesper.Models
         }
 
         [Key]
-        public int Id
-        {
-            get
-            {
-                return this.id;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException("Id cannot be negative!");
-                }
-
-                this.id = value;
-            }
-        }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "UserNmae is required")]
         [MinLength(2)]
         [MaxLength(30)]
-        public string UserName
-        {
-            get
-            {
-                return this.userName;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("UserName");
-                }
-
-                if (value.Length < 2 || 30 < value.Length)
-                {
-                    throw new ArgumentException("UserName lenght should be in range 2-30 symbols!");
-                }
-
-                this.userName = value;
-            }
-        }
+        public string UserName { get; set; }
 
         [Required(ErrorMessage = "Developer first name is required")]
         [MinLength(2)]
         [MaxLength(50)]
-        public string FirstName
-        {
-            get
-            {
-                return this.firstName;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("FirstName");
-                }
-
-                if (value.Length < 2 || 50 < value.Length)
-                {
-                    throw new ArgumentException("FirstName lenght should be in range 2-50 symbols!");
-                }
-
-                this.firstName = value;
-            }
-        }
+        public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Developer last name is required")]
         [MinLength(2)]
         [MaxLength(50)]
-        public string LastName
-        {
-            get
-            {
-                return this.lastName;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("LastName");
-                }
-
-                if (value.Length < 2 || 50 < value.Length)
-                {
-                    throw new ArgumentException("LastName lenght should be in range 2-50 symbols!");
-                }
-
-                this.lastName = value;
-            }
-        }
+        public string LastName { get; set; }
 
         [Range(18, 100)]
-        public int Age
-        {
-            get
-            {
-                return this.age;
-            }
-            set
-            {
-                if (value < 18 || 100 < value)
-                {
-                    throw new ArgumentException("Age should be in range 18-100!");
-                }
-
-                this.age = value;
-            }
-        }
+        public int Age { get; set; }
 
         public bool isTeamLeader { get; set; }
 
@@ -150,6 +56,10 @@ namespace TeamVesper.Models
 
         public virtual Speciality Speciality { get; set; }
 
-        public virtual ICollection<Bug> WorkingOn { get; set; }
+        public virtual ICollection<Bug> WorkingOn
+        {
+            get { return this.workingOn; }
+            set { this.workingOn = value; }
+        }
     }
 }

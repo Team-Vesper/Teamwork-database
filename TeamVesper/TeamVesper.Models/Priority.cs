@@ -26,27 +26,7 @@ namespace TeamVesper.Models
         [Required]
         [MinLength(2)]
         [MaxLength(30)]
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Priority name!");
-                }
-
-                if (value.Length < 2 || 30 < value.Length)
-                {
-                    throw new ArgumentException("Priority name lenght should be in range 2-30 symbols!");
-                }
-
-                this.name = value;
-            }
-        }
+        public string Name { get; set; }
 
         public virtual ICollection<Bug> Bugs
         {

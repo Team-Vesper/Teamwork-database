@@ -48,17 +48,29 @@ namespace TeamVesper.Repositories
 
         public void Add(TEntity entity)
         {
-            var entry = this.AttachIfDetached(entity);
-            entry.State = EntityState.Added;
+            this.set.Add(entity);
+
+            //For some reason unit of work do not work so repo take control of SaveChanges temporary
+            // TODO Fix it if can! Here and all methods below! 
+
+            this.dbContext.SaveChanges();
+
+            //var entry = this.AttachIfDetached(entity);
+            //entry.State = EntityState.Added;
         }
 
         public void AddMany(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                var entry = this.AttachIfDetached(entity);
-                entry.State = EntityState.Added;
+                this.set.Add(entity);
+
+                //var entry = this.AttachIfDetached(entity);
+                //entry.State = EntityState.Added;
             }
+
+            this.dbContext.SaveChanges();
+
         }
 
         public IEnumerable<TEntity> All()
@@ -76,6 +88,9 @@ namespace TeamVesper.Repositories
         {
             var entry = this.AttachIfDetached(entity);
             entry.State = EntityState.Deleted;
+
+            this.dbContext.SaveChanges();
+
         }
 
         public void RemoveMany(IEnumerable<TEntity> entities)
@@ -85,6 +100,9 @@ namespace TeamVesper.Repositories
                 var entry = this.AttachIfDetached(entity);
                 entry.State = EntityState.Added;
             }
+
+            this.dbContext.SaveChanges();
+
         }
 
         //public void Update(TEntity entity)

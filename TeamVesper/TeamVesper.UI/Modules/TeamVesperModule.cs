@@ -51,7 +51,8 @@ namespace TeamVesper.UI.Modules
         private const string PdfReporter = "PdfReporter";
         private const string ExcelReporter = "ExcelReporter";
 
-
+        private const string SqlServerUnitOFWork = "SqlServerUnitOFWork";
+        private const string MySqlUnitOfWork = "MySqlUnitOfWork";
 
         public override void Load()
         {
@@ -118,6 +119,27 @@ namespace TeamVesper.UI.Modules
 
                 return ctx.Kernel.Get<BugReportToXml>(param);
             }).Named(XmlReporter);
+
+            Bind<IUnitOfWorkFactory>().ToFactory().InSingletonScope();
+
+            // coz Telerik.OpenAccess.IUnitOfWork exsist
+            Bind<Repositories.Contracts.IUnitOfWork>().ToMethod(ctx =>
+            {
+                var dbContext = ctx.Kernel.Get<SqlServerDbContext>();
+
+                var param = new ConstructorArgument("context", dbContext);
+
+                return ctx.Kernel.Get<UnitOfWork>(param);
+            }).Named(SqlServerUnitOFWork);
+
+            Bind<Repositories.Contracts.IUnitOfWork>().ToMethod(ctx =>
+            {
+                var dbContext = ctx.Kernel.Get<MySqlContext>();
+
+                var param = new ConstructorArgument("context", dbContext);
+
+                return ctx.Kernel.Get<UnitOfWork>(param);
+            }).Named(MySqlUnitOfWork);
 
             // TODO Dependencies bindings
 

@@ -1,6 +1,8 @@
-﻿namespace TeamVesper.Repositories.Contracts
+﻿using System;
+
+namespace TeamVesper.Repositories.Contracts
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         void Commit();
     }

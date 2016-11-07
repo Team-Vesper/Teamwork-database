@@ -20,35 +20,9 @@ namespace TeamVesper.Models
             this.AverageSalary = averageSalary;
         }
 
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Name cannot be null.");
-                }
+        public string Name { get; set; }
 
-                this.name = value;
-            }
-        }
-
-        public decimal AverageSalary
-        {
-            get
-            {
-                return this.averageSalary;
-            }
-
-            set
-            {
-                this.averageSalary = value;
-            }
-        }
+        public decimal AverageSalary { get; set; }
     }
 
 }

@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using TeamVesper.Repositories.Contracts;
 
@@ -42,7 +43,7 @@ namespace TeamVesper.Repositories
             return this.dbSet.Find(predicate).ToEnumerable();
 
             // whole collection
-            // return this.dbSet.Find(predicate).ToList();
+            //return this.dbSet.Find(predicate).ToList();
         }
     }
 }
