@@ -5,9 +5,6 @@ namespace TeamVesper.Models
 {
     public class Bug 
     {
-        private int id;
-        private string description;
-
         public Bug()
         {
 

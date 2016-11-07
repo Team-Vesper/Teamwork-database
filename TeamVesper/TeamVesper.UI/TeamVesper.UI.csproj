@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IDbInitializerFactory.cs" />
     <Compile Include="Contracts\IFormFactory.cs" />
+    <Compile Include="Contracts\IMapperFactory.cs" />
     <Compile Include="Contracts\IReporterFactory.cs" />
     <Compile Include="Contracts\IRepositoryFactory.cs" />
     <Compile Include="Contracts\IUnitOfWorkFactory.cs" />

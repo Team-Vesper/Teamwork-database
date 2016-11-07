@@ -12,16 +12,34 @@ namespace DoingRandomTests
         public static void Main()
         {
             var db = new SqlServerDbContext();
-            var devs = db
-                            .Developers
+
+            var result = new List<BugInfo>();
+
+            var bugs = db.Bugs
+                            .Include("Priority")
                             .Include("Speciality")
-                            .Include("Team")
+                            .Include("AttachedTo")
+                            //.Include("Team")
                             .ToList();
 
-            foreach (var item in devs)
+            foreach (var bug in bugs)
             {
-                System.Console.WriteLine(item.Speciality.Name);
+                var bugIngo = new BugInfo
+                {
+                    Id = bug.Id,
+                    Description = bug.Description,
+                    Priority = bug.Priority.Name,
+                    Speciality = bug.Speciality.Name,
+                    SolvedOn = bug.solvedOn.ToString(),
+                    AttachTo = bug.AttachedTo.UserName,
+                    Team = bug.AttachedTo.Team.Name
+                };
+
+                result.Add(bugIngo);
+
+                System.Console.WriteLine(bugIngo.Id);
             }
+
         }
 
         private static IEnumerable<MongoDeveloper> GetMongoDevelopers()

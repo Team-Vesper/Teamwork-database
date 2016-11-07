@@ -17,15 +17,15 @@ namespace TeamVesper.UI
     {
         private IRepositoryFactory repositoryFactory;
         private IReporterFactory reporterFactory;
-        private StarndartModelsToMongoModelMapper mapper;
+        private IMapperFactory mapperfactory;
 
         public ExportForm(IRepositoryFactory repositoryFactory,
                                 IReporterFactory reporterFactory,
-                                StarndartModelsToMongoModelMapper mapper)
+                                IMapperFactory mapperfactory)
         {
             this.repositoryFactory = repositoryFactory;
             this.reporterFactory = reporterFactory;
-            this.mapper = mapper;
+            this.mapperfactory = mapperfactory;
             InitializeComponent();
         }
 
@@ -37,7 +37,8 @@ namespace TeamVesper.UI
 
         private void ReportPDF_Click(object sender, EventArgs e)
         {
-
+            var task = new Task(() => this.ExportToPdf());
+            task.Start();
         }
 
         private void ReportXML_Click(object sender, EventArgs e)
@@ -61,13 +62,25 @@ namespace TeamVesper.UI
         private async Task ExportToJson()
         {
             var reporter = this.reporterFactory.GetJsonReporter<MongoDeveloper>();
-            var mapper = this.mapper;
+            var mapper = this.mapperfactory.GetStarndartModelsToMongoModelMapper();
 
             var devs = mapper.ExtractMongoDevelopers();
 
             reporter.ReportMany(devs);
 
-            Task.Delay(1);
+            await Task.Delay(1);
+        }
+
+        private async Task ExportToPdf()
+        {
+            var reporter = this.reporterFactory.GetPdfReporter<BugInfo>();
+            var mapper = this.mapperfactory.GetBugToBugInfoMapper();
+
+            var buginfos = mapper.ExtractBugInfo();
+
+            reporter.ReportMany(buginfos);
+
+            await Task.Delay(1);
         }
     }
 }

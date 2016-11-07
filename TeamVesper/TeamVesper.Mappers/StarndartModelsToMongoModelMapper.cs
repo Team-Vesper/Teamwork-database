@@ -10,14 +10,14 @@ namespace TeamVesper.Mappers
 {
     public class StarndartModelsToMongoModelMapper
     {
-        private SqlServerDbContext dbContext;
+        private ICurrentSqlServerDbContext dbContext;
 
-        public StarndartModelsToMongoModelMapper(SqlServerDbContext dbContext)
+        public StarndartModelsToMongoModelMapper(ICurrentSqlServerDbContext dbContext)
         {
             this.DbContext = dbContext;
         }
 
-        private SqlServerDbContext DbContext
+        private ICurrentSqlServerDbContext DbContext
         {
             set
             {
