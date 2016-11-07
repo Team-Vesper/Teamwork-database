@@ -12,7 +12,7 @@ namespace TeamVesper.ExportToJson
         private string folderPath;
         private IJsonSeriliazer seriliazer;
 
-        public JsonToFile(string folderPath, IJsonSeriliazer seriliazer = null)
+        public JsonToFile(string folderPath, IJsonSeriliazer seriliazer)
         {
             this.FolderPath = folderPath;
             this.Seriliazer = seriliazer;

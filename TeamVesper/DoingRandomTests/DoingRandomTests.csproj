@@ -33,7 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeamVesper.Mappers\TeamVesper.Mappers.csproj">
@@ -61,6 +71,10 @@
     <ProjectReference Include="..\TeamVesper.Repositories\TeamVesper.Repositories.csproj">
       <Project>{ef03e9b3-f3a1-4aad-b2ad-2d3089f9e8b0}</Project>
       <Name>TeamVesper.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamVesper.SqlServerData\TeamVesper.SqlServerData.csproj">
+      <Project>{e2263523-ad04-43a5-9390-f8ea35b3da2b}</Project>
+      <Name>TeamVesper.SqlServerData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

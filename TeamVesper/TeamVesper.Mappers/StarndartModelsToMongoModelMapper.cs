@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using TeamVesper.Models;
 using TeamVesper.Repositories.Contracts;
+using TeamVesper.SqlServerData;
 
 namespace TeamVesper.Mappers
 {
     public class StarndartModelsToMongoModelMapper
     {
-        private ICurrentSqlServerDbContext dbContext;
+        private SqlServerDbContext dbContext;
 
-        public StarndartModelsToMongoModelMapper(ICurrentSqlServerDbContext dbContext)
+        public StarndartModelsToMongoModelMapper(SqlServerDbContext dbContext)
         {
             this.DbContext = dbContext;
         }
 
-        private ICurrentSqlServerDbContext DbContext
+        private SqlServerDbContext DbContext
         {
             set
             {
@@ -34,8 +36,9 @@ namespace TeamVesper.Mappers
 
             var devs = this.dbContext
                             .Developers
-                            .Include("Specialities")
-                            .Include("Teams");
+                            .Include("Speciality")
+                            .Include("Team")
+                            .ToList();
 
             foreach (var dev in devs)
             {
@@ -46,6 +49,7 @@ namespace TeamVesper.Mappers
                                         dev.Speciality.Name,
                                         dev.Team.Name,
                                         dev.isTeamLeader);
+                devForAdd.Id = dev.Id.ToString();
 
                 result.Add(devForAdd);
             }

@@ -20,6 +20,7 @@ using TeamVesper.ExportToXML;
 using Telerik.OpenAccess;
 using TeamVesper.MySqlData;
 using TeamVesper.ExportToJson.Contracts;
+using TeamVesper.Mappers;
 
 namespace TeamVesper.UI.Modules
 {
@@ -149,6 +150,7 @@ namespace TeamVesper.UI.Modules
             Bind<OpenAccessContext>().To<MySqlContext>().InSingletonScope();
             Bind<MySqlContext>().To<MySqlContext>().InSingletonScope();
             Bind<IJsonSeriliazer>().To<JsonSeriliazer>();
+            Bind<StarndartModelsToMongoModelMapper>().To<StarndartModelsToMongoModelMapper>();
         }
     }
 }

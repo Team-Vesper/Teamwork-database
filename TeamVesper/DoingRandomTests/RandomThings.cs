@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using TeamVesper.Models;
 using TeamVesper.Mappers;
+using TeamVesper.SqlServerData;
+using System.Data.Entity;
+using System.Linq;
 
 namespace DoingRandomTests
 {
@@ -8,7 +11,17 @@ namespace DoingRandomTests
     {
         public static void Main()
         {
+            var db = new SqlServerDbContext();
+            var devs = db
+                            .Developers
+                            .Include("Speciality")
+                            .Include("Team")
+                            .ToList();
 
+            foreach (var item in devs)
+            {
+                System.Console.WriteLine(item.Speciality.Name);
+            }
         }
 
         private static IEnumerable<MongoDeveloper> GetMongoDevelopers()
