@@ -177,10 +177,20 @@ namespace TeamVesper.UI.Modules
             Bind<SqlServerDbContext>().To<SqlServerDbContext>().InSingletonScope();
             Bind<MongoConnector<MongoDeveloper>>().To<MongoConnector<MongoDeveloper>>().InSingletonScope();
             Bind<ICurrentSqlServerDbContext>().To<SqlServerDbContext>();
-            Bind<OpenAccessContext>().To<MySqlContext>().InSingletonScope();
             Bind<MySqlContext>().To<MySqlContext>().InSingletonScope();
             Bind<IJsonSeriliazer>().To<JsonSeriliazer>();
+            Bind<OpenAccessContext>().To<MySqlContext>().InSingletonScope();
 
+            Bind<BackendConfiguration>().ToMethod(ctx =>
+            {
+                var config = ctx.Kernel.Get<BackendConfiguration>();
+
+                config.Backend = "MySql";
+                config.ProviderName = "MySql.Data.MySqlClient";
+                return config;
+            }).InSingletonScope();
+
+            Bind<MySqlModelConfiguration>().To<MySqlModelConfiguration>().InSingletonScope();
         }
     }
 }

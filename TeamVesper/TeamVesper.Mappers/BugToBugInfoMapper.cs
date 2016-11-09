@@ -49,8 +49,8 @@ namespace TeamVesper.Mappers
                     Priority = bug.Priority.Name,
                     Speciality = bug.Speciality.Name,
                     SolvedOn = bug.solvedOn.ToString(),
-                    AttachTo = bug.AttachedTo.UserName,
-                    Team = bug.AttachedTo.Team.Name
+                    //AttachTo = bug.AttachedTo.UserName
+                    //Team = bug.AttachedTo.Team.Name
                 };
 
                 result.Add(bugIngo);

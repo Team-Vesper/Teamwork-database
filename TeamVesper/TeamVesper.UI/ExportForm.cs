@@ -100,11 +100,12 @@ namespace TeamVesper.UI
 
         private async Task ExportToExcel()
         {
-            var SqlServerRepo = this.repositoryFactory.GetSqlServerRepository<Developer>();
+            var sqlServerRepo = this.repositoryFactory.GetSqlServerRepository<Developer>();
+            var sqliteRepo = this.repositoryFactory.GetSQLiteReadableRepository<Company>();
 
             var reporter = this.reporterFactory.GetExcelReporter<CompanyOverview>();
 
-            var result = SqlServerRepo.All().ToList();
+            var result = sqlServerRepo.All().ToList();
 
             var grouped = result.GroupBy(x => x.Team.Name)
                                 .Select(gr => new
@@ -115,7 +116,14 @@ namespace TeamVesper.UI
                                 })
                                 .ToList();
 
+            var companies = sqliteRepo.All().ToList();
+
             // TODO ask how to use that !
+
+            foreach (var company in companies)
+            {
+
+            }
 
 
             await Task.Delay(1);

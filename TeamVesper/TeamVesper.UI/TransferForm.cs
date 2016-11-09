@@ -29,6 +29,7 @@ namespace TeamVesper.UI
         {
             var task = new Task(() => this.SqlServerToMySqlTransfer());
             task.Start();
+
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -44,7 +45,8 @@ namespace TeamVesper.UI
             var sqlServerRepo = repositoryFactory.GetSqlServerRepository<Developer>();
             var mySqlRepo = repositoryFactory.GetMySqlRepository<DeveloperBugsInfo>();
 
-            var devs = sqlServerRepo.All();
+            var devs = sqlServerRepo.All().ToList();
+
 
             var devsForAdd = devs
                             .Select(x => new DeveloperBugsInfo(x.Id,
