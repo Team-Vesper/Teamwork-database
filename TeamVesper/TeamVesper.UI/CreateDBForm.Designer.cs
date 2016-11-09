@@ -37,35 +37,41 @@
             // 
             // CreateMongoDbButton
             // 
+            this.CreateMongoDbButton.BackColor = System.Drawing.Color.Black;
             this.CreateMongoDbButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CreateMongoDbButton.ForeColor = System.Drawing.Color.Aqua;
             this.CreateMongoDbButton.Location = new System.Drawing.Point(27, 170);
             this.CreateMongoDbButton.Name = "CreateMongoDbButton";
             this.CreateMongoDbButton.Size = new System.Drawing.Size(161, 100);
             this.CreateMongoDbButton.TabIndex = 1;
             this.CreateMongoDbButton.Text = "Create MongoDb";
-            this.CreateMongoDbButton.UseVisualStyleBackColor = true;
+            this.CreateMongoDbButton.UseVisualStyleBackColor = false;
             this.CreateMongoDbButton.Click += new System.EventHandler(this.CreateMongoDB_Click);
             // 
             // CreateSQLServerButton
             // 
+            this.CreateSQLServerButton.BackColor = System.Drawing.Color.Black;
             this.CreateSQLServerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CreateSQLServerButton.ForeColor = System.Drawing.Color.Aqua;
             this.CreateSQLServerButton.Location = new System.Drawing.Point(221, 170);
             this.CreateSQLServerButton.Name = "CreateSQLServerButton";
             this.CreateSQLServerButton.Size = new System.Drawing.Size(161, 100);
             this.CreateSQLServerButton.TabIndex = 2;
             this.CreateSQLServerButton.Text = "Create SQL Server";
-            this.CreateSQLServerButton.UseVisualStyleBackColor = true;
+            this.CreateSQLServerButton.UseVisualStyleBackColor = false;
             this.CreateSQLServerButton.Click += new System.EventHandler(this.CreateSqlServer_Click);
             // 
             // CreateSQLiteButton
             // 
+            this.CreateSQLiteButton.BackColor = System.Drawing.Color.Black;
             this.CreateSQLiteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CreateSQLiteButton.ForeColor = System.Drawing.Color.Aqua;
             this.CreateSQLiteButton.Location = new System.Drawing.Point(415, 170);
             this.CreateSQLiteButton.Name = "CreateSQLiteButton";
             this.CreateSQLiteButton.Size = new System.Drawing.Size(161, 100);
             this.CreateSQLiteButton.TabIndex = 3;
             this.CreateSQLiteButton.Text = "Create SQLite";
-            this.CreateSQLiteButton.UseVisualStyleBackColor = true;
+            this.CreateSQLiteButton.UseVisualStyleBackColor = false;
             this.CreateSQLiteButton.Click += new System.EventHandler(this.CreateSQLite_Click);
             // 
             // Back
@@ -81,19 +87,22 @@
             // 
             // CreateMySQL
             // 
+            this.CreateMySQL.BackColor = System.Drawing.Color.Black;
             this.CreateMySQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CreateMySQL.ForeColor = System.Drawing.Color.Aqua;
             this.CreateMySQL.Location = new System.Drawing.Point(609, 170);
             this.CreateMySQL.Name = "CreateMySQL";
             this.CreateMySQL.Size = new System.Drawing.Size(161, 100);
             this.CreateMySQL.TabIndex = 6;
             this.CreateMySQL.Text = "Create MySQL";
-            this.CreateMySQL.UseVisualStyleBackColor = true;
+            this.CreateMySQL.UseVisualStyleBackColor = false;
             this.CreateMySQL.Click += new System.EventHandler(this.CreateMySQL_Click);
             // 
             // CreateDBForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TeamVesper.UI.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.CreateMySQL);
             this.Controls.Add(this.Back);

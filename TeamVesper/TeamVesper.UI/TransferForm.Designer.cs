@@ -34,13 +34,15 @@
             // 
             // SqlServerToMySQL
             // 
+            this.SqlServerToMySQL.BackColor = System.Drawing.Color.Black;
             this.SqlServerToMySQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SqlServerToMySQL.ForeColor = System.Drawing.Color.Aqua;
             this.SqlServerToMySQL.Location = new System.Drawing.Point(312, 170);
             this.SqlServerToMySQL.Name = "SqlServerToMySQL";
             this.SqlServerToMySQL.Size = new System.Drawing.Size(146, 100);
             this.SqlServerToMySQL.TabIndex = 1;
             this.SqlServerToMySQL.Text = "Sql Server To MySQL";
-            this.SqlServerToMySQL.UseVisualStyleBackColor = true;
+            this.SqlServerToMySQL.UseVisualStyleBackColor = false;
             this.SqlServerToMySQL.Click += new System.EventHandler(this.SqlServerToMySQL_Click);
             // 
             // Back
@@ -54,14 +56,15 @@
             this.Back.UseVisualStyleBackColor = true;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
-            // Transfer
+            // TransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TeamVesper.UI.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.SqlServerToMySQL);
-            this.Name = "Transfer";
+            this.Name = "TransferForm";
             this.Text = "Transfer";
             this.ResumeLayout(false);
 

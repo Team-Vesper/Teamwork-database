@@ -37,46 +37,54 @@
             // 
             // ReportJSON
             // 
+            this.ReportJSON.BackColor = System.Drawing.Color.Black;
             this.ReportJSON.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReportJSON.ForeColor = System.Drawing.Color.Aqua;
             this.ReportJSON.Location = new System.Drawing.Point(29, 170);
             this.ReportJSON.Name = "ReportJSON";
             this.ReportJSON.Size = new System.Drawing.Size(161, 100);
             this.ReportJSON.TabIndex = 2;
             this.ReportJSON.Text = "Report to JSON files";
-            this.ReportJSON.UseVisualStyleBackColor = true;
+            this.ReportJSON.UseVisualStyleBackColor = false;
             this.ReportJSON.Click += new System.EventHandler(this.ReportJSON_Click);
             // 
             // ReportPDF
             // 
+            this.ReportPDF.BackColor = System.Drawing.Color.Black;
             this.ReportPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReportPDF.ForeColor = System.Drawing.Color.Aqua;
             this.ReportPDF.Location = new System.Drawing.Point(213, 170);
             this.ReportPDF.Name = "ReportPDF";
             this.ReportPDF.Size = new System.Drawing.Size(161, 100);
             this.ReportPDF.TabIndex = 3;
             this.ReportPDF.Text = "Report to PDF file";
-            this.ReportPDF.UseVisualStyleBackColor = true;
+            this.ReportPDF.UseVisualStyleBackColor = false;
             this.ReportPDF.Click += new System.EventHandler(this.ReportPDF_Click);
             // 
             // ReportXML
             // 
+            this.ReportXML.BackColor = System.Drawing.Color.Black;
             this.ReportXML.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReportXML.ForeColor = System.Drawing.Color.Aqua;
             this.ReportXML.Location = new System.Drawing.Point(397, 170);
             this.ReportXML.Name = "ReportXML";
             this.ReportXML.Size = new System.Drawing.Size(161, 100);
             this.ReportXML.TabIndex = 4;
             this.ReportXML.Text = "Report to XML file";
-            this.ReportXML.UseVisualStyleBackColor = true;
+            this.ReportXML.UseVisualStyleBackColor = false;
             this.ReportXML.Click += new System.EventHandler(this.ReportXML_Click);
             // 
             // ReportExcel
             // 
+            this.ReportExcel.BackColor = System.Drawing.Color.Black;
             this.ReportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReportExcel.ForeColor = System.Drawing.Color.Aqua;
             this.ReportExcel.Location = new System.Drawing.Point(581, 170);
             this.ReportExcel.Name = "ReportExcel";
             this.ReportExcel.Size = new System.Drawing.Size(161, 100);
             this.ReportExcel.TabIndex = 5;
             this.ReportExcel.Text = "Report to Excel file";
-            this.ReportExcel.UseVisualStyleBackColor = true;
+            this.ReportExcel.UseVisualStyleBackColor = false;
             this.ReportExcel.Click += new System.EventHandler(this.ReportExcel_Click);
             // 
             // Back
@@ -90,17 +98,18 @@
             this.Back.UseVisualStyleBackColor = true;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
-            // Export
+            // ExportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TeamVesper.UI.Properties.Resources._1;
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.ReportExcel);
             this.Controls.Add(this.ReportXML);
             this.Controls.Add(this.ReportPDF);
             this.Controls.Add(this.ReportJSON);
-            this.Name = "Export";
+            this.Name = "ExportForm";
             this.Text = "Export";
             this.ResumeLayout(false);
 
