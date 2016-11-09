@@ -89,13 +89,15 @@
             // 
             // Exit
             // 
+            this.Exit.BackColor = System.Drawing.Color.Black;
             this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Exit.ForeColor = System.Drawing.Color.Red;
             this.Exit.Location = new System.Drawing.Point(310, 350);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(150, 60);
             this.Exit.TabIndex = 4;
             this.Exit.Text = "Exit";
-            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // MainForm

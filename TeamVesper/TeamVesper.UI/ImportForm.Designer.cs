@@ -75,13 +75,15 @@
             // 
             // Back
             // 
+            this.Back.BackColor = System.Drawing.Color.Black;
             this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Back.ForeColor = System.Drawing.Color.Red;
             this.Back.Location = new System.Drawing.Point(310, 350);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(150, 60);
             this.Back.TabIndex = 6;
             this.Back.Text = "Back";
-            this.Back.UseVisualStyleBackColor = true;
+            this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // ImportForm
